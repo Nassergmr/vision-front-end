@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { sendUserMessage } from "@/services/userServices";
 import Image from "next/image";
-import router from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   Dialog,
   DialogContent,
@@ -24,6 +24,7 @@ export default function SendMessage({ userData }: Props) {
   const [loading, setLoading] = useState(false);
   const [checked, setChecked] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const router = useRouter();
   const { adminData } = useStore();
 
   const notify = () => toast.success(`Message sent successfully!`);
@@ -51,7 +52,7 @@ export default function SendMessage({ userData }: Props) {
       <DialogTrigger
         onClick={() => {
           if (!adminData?.email) {
-            router.redirect("/login");
+            router.push("/login");
           }
         }}
         disabled={adminData?.email === userData?.email}

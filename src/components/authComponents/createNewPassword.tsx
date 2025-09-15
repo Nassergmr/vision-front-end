@@ -1,10 +1,10 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { UpdatePassword } from "@/services/authServices";
 import Link from "next/link";
+import { UpdatePassword } from "@/services/authServices";
 
 export default function CreateNewPassword() {
   const searchParams = useSearchParams();

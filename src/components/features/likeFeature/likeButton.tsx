@@ -1,4 +1,4 @@
-import router from "next/navigation";
+import { useRouter } from "next/navigation";
 import { getImageLikes } from "@/services/imageServices";
 import {
   fetchAdminLikedImages,
@@ -16,6 +16,8 @@ export default function LikeButton({
   setLoading4,
   setImageLikes,
 }: LikeButtonProps) {
+  const router = useRouter();
+
   const { adminData, adminLikes, updateAdminLikes, updateAdminLikedImages } =
     useStore();
 
@@ -63,7 +65,7 @@ export default function LikeButton({
         onClick={() =>
           adminData
             ? handleUpdateImageLikes(e.id, e.public_id, adminData?.id)
-            : router.redirect("/login")
+            : router.push("/login")
         }
         title={`${
           adminLikes?.some((el) => el.imageId === e.id) ? "Unlike" : "Like"
@@ -90,7 +92,7 @@ export default function LikeButton({
         onClick={() =>
           adminData
             ? handleUpdateImageLikes(e.id, e.public_id, adminData?.id)
-            : router.redirect("/login")
+            : router.push("/login")
         }
         className={` block lg:hidden p-2 rounded-xl transition-all duration-500  cursor-pointer 
         ${

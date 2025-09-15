@@ -48,6 +48,7 @@ export function AdminGalleryCombobox({
 
   useEffect(() => {
     handleFetchImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
