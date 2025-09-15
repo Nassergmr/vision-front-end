@@ -40,7 +40,7 @@ export default function EnterEmail() {
       <div className="sm:mx-auto sm:w-full sm:max-w-lg">
         <Link className={`w-fit`} id="logo_container" href={"/"}>
           <Image
-            src={"/FullLogo_Transparent_NoBuffer_2.png"}
+            src={"/logo_black"}
             width={0}
             height={0}
             sizes="100vw"

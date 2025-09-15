@@ -139,7 +139,7 @@ export default function Navebar({ isLoggedIn }: Props) {
             href={"/"}
           >
             <Image
-              src={"/FullLogo_Transparent_NoBuffer_2.png"}
+              src={"/logo_black"}
               width={0}
               height={0}
               className="h-[52px] sm:w-auto w-[52px]"
