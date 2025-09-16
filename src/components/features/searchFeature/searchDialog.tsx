@@ -58,7 +58,7 @@ export default function SearchDialog({
         ))}
         {emptySearchResults && (
           <p
-            className={`px-5 py-1.5 ${
+            className={`sm:px-5 px-3 py-1.5 ${
               loading ? "text-gray-400" : "text-black"
             }`}
           >

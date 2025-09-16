@@ -120,13 +120,10 @@ export default function AdminCollections() {
                 ) : (
                   <div className="relative w-full h-full">
                     <Image
-                      src={
-                        "https://res.cloudinary.com/dae5vlvpe/image/upload/v1757606718/output-onlinepngtools_gta8gm.png"
-                      }
+                      src={"/empty-collection-preview.png"}
                       fill
                       alt=""
                       className="object-cover"
-                      unoptimized
                     />
                   </div>
                 )}

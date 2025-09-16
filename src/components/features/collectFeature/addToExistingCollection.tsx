@@ -79,7 +79,7 @@ export default function AddToExistingCollectionComponent({
             {/* Empty collection preview image*/}
             {el.images.length === 0 && (
               <Image
-                src={`https://res.cloudinary.com/dae5vlvpe/image/upload/v1757606718/output-onlinepngtools_gta8gm.png`}
+                src={`/empty-collection-preview.png`}
                 fill
                 sizes="165px"
                 alt={el.title}
