@@ -58,7 +58,6 @@ const Login: React.FC = () => {
                 sizes="100vw"
                 className="h-[80px] sm:w-auto w-[80px] mx-auto mb-8"
                 alt="avatar"
-                unoptimized
               />
             </Link>
             <h2 className="mt-5 text-neutral-700 text-center text-2xl sm:text-3xl font-semibold ">
