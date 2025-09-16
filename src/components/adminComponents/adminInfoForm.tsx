@@ -15,7 +15,6 @@ export default function AdminInfoForm({
 }: AdminFormProps) {
   const [adminFirstName, setAdminFirstName] = useState("");
   const [adminLastName, setAdminLastName] = useState("");
-  const [adminPassword] = useState("");
   const [adminBio, setAdminBio] = useState("");
   const [adminLocation, setAdminLocation] = useState("");
   const [adminWebsite, setAdminWebsite] = useState("");
@@ -144,7 +143,6 @@ export default function AdminInfoForm({
         adminData?.id ?? "",
         adminFirstName,
         adminLastName,
-        adminPassword,
         adminBio,
         adminLocation,
         adminWebsite,
