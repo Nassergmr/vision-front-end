@@ -53,10 +53,10 @@ const Login: React.FC = () => {
             <Link className={`w-fit`} id="logo_container" href={"/"}>
               <Image
                 src={"/logo_black.png"}
-                width={0}
-                height={0}
+                width={80}
+                height={80}
                 sizes="100vw"
-                className="h-[80px] sm:w-auto w-[80px] mx-auto mb-8"
+                className="object-cover mx-auto mb-8"
                 alt="avatar"
               />
             </Link>

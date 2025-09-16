@@ -63,9 +63,9 @@ const Register: React.FC = () => {
             <Link className={`w-fit`} id="logo_container" href={"/"}>
               <Image
                 src={"/logo_black.png"}
-                width={0}
-                height={0}
-                className="h-[80px] sm:w-auto w-[80px] mx-auto mb-8"
+                width={80}
+                height={80}
+                className=" object-cover mx-auto mb-8"
                 alt="avatar"
               />
             </Link>

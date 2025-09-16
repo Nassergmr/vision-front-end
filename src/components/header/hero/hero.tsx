@@ -114,7 +114,7 @@ export default function Hero() {
                 <Image
                   src={"/logo_white.png"}
                   width={0}
-                  height={0}
+                  height={80}
                   sizes="100vw"
                   className="h-[52px] sm:w-auto w-[52px]"
                   alt="avatar"
