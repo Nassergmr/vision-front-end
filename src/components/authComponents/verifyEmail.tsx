@@ -20,7 +20,7 @@ export default function VerifyEmail() {
     const handleVerifyEmail = async () => {
       try {
         const res = await fetch(
-          `http://localhost:3001/vision/auth/verify-email?token=${token}`
+          `https://vision-back-end-bold-firefly-8752.fly.dev/vision/auth/verify-email?token=${token}`
         );
         const data = await res.json();
         setErrorMessage("");
