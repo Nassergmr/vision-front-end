@@ -70,7 +70,7 @@ export default function CommentComponent({
                       src={
                         el.user?.avatar
                           ? `${`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${el.user.avatar}`}`
-                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
+                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                       }
                       fill
                       alt="avatar"

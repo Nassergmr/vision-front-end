@@ -201,7 +201,7 @@ export default function Navebar({ isLoggedIn }: Props) {
                     src={
                       adminAvatar
                         ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminAvatar}`
-                        : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
+                        : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                     }
                     fill
                     sizes="52px"

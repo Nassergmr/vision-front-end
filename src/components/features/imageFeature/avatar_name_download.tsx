@@ -28,10 +28,10 @@ export default function AvatarNameDownload({
               galleryPath
                 ? adminData?.avatar
                   ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminData?.avatar}`
-                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
+                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                 : e.user?.avatar
                 ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.user?.avatar}`
-                : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
+                : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
             }
             fill
             sizes="44px"

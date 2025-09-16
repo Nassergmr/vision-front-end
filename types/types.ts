@@ -6,7 +6,7 @@ export type AdminData = {
   lastName: string;
   avatar?:
     | string
-    | "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png";
+    | "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png";
   email: string;
   bio: string;
   location?: string;

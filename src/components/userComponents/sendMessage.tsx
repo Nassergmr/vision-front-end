@@ -79,7 +79,7 @@ export default function SendMessage({ userData }: Props) {
                   src={
                     userData?.avatar
                       ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${userData.avatar}`
-                      : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
+                      : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                   }
                   fill
                   alt="avatar"
