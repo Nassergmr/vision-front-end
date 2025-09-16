@@ -52,7 +52,7 @@ const Login: React.FC = () => {
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <Link className={`w-fit`} id="logo_container" href={"/"}>
               <Image
-                src={"/logo_black"}
+                src={"/logo_black.png"}
                 width={0}
                 height={0}
                 sizes="100vw"

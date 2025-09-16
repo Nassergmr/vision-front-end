@@ -47,7 +47,7 @@ export default function CreateNewPassword() {
       <div className="sm:mx-auto sm:w-full sm:max-w-lg">
         <Link className={`w-fit`} id="logo_container" href={"/"}>
           <Image
-            src={"/logo_black"}
+            src={"/logo_black.png"}
             width={0}
             height={0}
             sizes="100vw"
