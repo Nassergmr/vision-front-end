@@ -100,7 +100,7 @@ export default function AddToExistingCollectionComponent({
                 className={`absolute ${
                   loading && el.id === isId
                     ? "bg-none! "
-                    : "group-hover:bg-red-700/60 bg-[#37C57D]/60"
+                    : "sm:group-hover:bg-red-700/60 bg-[#37C57D]/60"
                 }  inset-0 justify-center flex items-center transition-all  `}
               >
                 <div
@@ -123,7 +123,7 @@ export default function AddToExistingCollectionComponent({
               !loading && (
                 <div
                   id="image_overlay_not_in_collection"
-                  className={` absolute flex bg-black/80 opacity-0 group-hover:opacity-100 inset-0 justify-center items-center transition-all`}
+                  className={` absolute flex sm:bg-black/80 opacity-0 sm:group-hover:opacity-100 inset-0 justify-center items-center transition-all`}
                 >
                   <div
                     id="icons_container"

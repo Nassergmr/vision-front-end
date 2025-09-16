@@ -108,7 +108,7 @@ export default function AdminGallery() {
 
       {adminImages && adminImages?.length > 0 && (
         <div className="flex justify-between sm:items-end items-center gap-1">
-          <h3 className="text-black sm:text-2xl sm:font-medium text-lg tracking-tight">{`Your ${title} Photos`}</h3>
+          <h3 className="text-black sm:text-2xl font-medium text-lg tracking-tight">{`Your ${title} Photos`}</h3>
           <AdminGalleryCombobox
             handleFetchPublishedImages={handleFetchPublishedImages}
             handleFetchDraftImages={handleFetchDraftImages}

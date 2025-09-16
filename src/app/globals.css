@@ -45,6 +45,7 @@
 
 html {
   position: relative;
+  max-width: 100vw;
 }
 
 body {

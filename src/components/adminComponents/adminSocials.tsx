@@ -109,9 +109,11 @@ export default function AdminSocials({ adminData }: Props) {
   return (
     <>
       {adminData?.bio && (
-        <p className={`text-center text-gray-600 sm:w-[80%] w-full mx-auto`}>
-          {adminData?.bio}
-        </p>
+        <div className=" sm:w-[80%] w-full mx-auto">
+          <p className={`text-center text-gray-600 break-words text-ellipsis`}>
+            {adminData?.bio}
+          </p>
+        </div>
       )}
 
       {socials.some((social) => social.show) && (

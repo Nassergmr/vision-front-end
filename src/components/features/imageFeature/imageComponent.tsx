@@ -590,6 +590,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                           sizes="width-112px height-112px"
                           alt={e.title}
                           className="rounded-md object-cover"
+                          unoptimized
                         />
                       </div>
 
