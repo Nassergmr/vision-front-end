@@ -119,7 +119,6 @@ export default function Hero() {
                   sizes="100vw"
                   className="h-[52px] sm:w-auto w-[52px]"
                   alt="avatar"
-                  unoptimized
                 />
               </Link>
             </div>
@@ -140,7 +139,7 @@ export default function Hero() {
                       src={
                         adminAvatar
                           ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminAvatar}`
-                          : "/avatar.png"
+                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
                       }
                       fill
                       alt="avatar"

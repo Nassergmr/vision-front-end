@@ -46,7 +46,7 @@ export default function AdminAvatarEdit({ handleFetchAdminAvatar }: Props) {
           src={
             adminAvatar
               ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminAvatar}`
-              : "/avatar.png"
+              : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
           }
           fill
           alt="avatar"

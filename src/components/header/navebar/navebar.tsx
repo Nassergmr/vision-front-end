@@ -139,12 +139,11 @@ export default function Navebar({ isLoggedIn }: Props) {
             href={"/"}
           >
             <Image
-              src={"/logo_black"}
-              width={0}
-              height={0}
+              src={"/logo_black.png"}
+              width={52}
+              height={52}
               className="h-[52px] sm:w-auto w-[52px]"
               alt="avatar"
-              unoptimized
             />
           </Link>
 
@@ -202,7 +201,7 @@ export default function Navebar({ isLoggedIn }: Props) {
                     src={
                       adminAvatar
                         ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminAvatar}`
-                        : "/avatar.png"
+                        : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_teitk6.png"
                     }
                     fill
                     sizes="52px"
