@@ -69,12 +69,11 @@ export default function CommentComponent({
                     <Image
                       src={
                         el.user?.avatar
-                          ? `${`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${el.user.avatar}`}`
-                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
+                          ? `${`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${el.user.avatar}`}`
+                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                       }
                       fill
                       alt="avatar"
-                      unoptimized
                       className="rounded-full object-cover"
                     />
                   </div>
@@ -105,7 +104,7 @@ export default function CommentComponent({
           handleUpdateImageComments(
             imageComment,
             e.id,
-            `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`,
+            `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`,
             adminData?.id ?? ""
           );
         }}

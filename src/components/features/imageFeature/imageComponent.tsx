@@ -246,13 +246,8 @@ export default function ImageComponent({ e }: ImageComponentProps) {
     <div
       id="image_container"
       key={e.id}
-      className="group relative overflow-hidden w-full  sm:h-[450px]  h-[220px]"
+      className="group relative overflow-hidden my-2"
     >
-      {!isLoaded && (
-        <Skeleton
-          className={`relative w-full sm:h-[450px]  h-[220px]  bg-gray-200  rounded-xl`}
-        />
-      )}
       <Dialog open={dialogOpen2} onOpenChange={setDialogOpen2}>
         <DialogTrigger
           className="cursor-pointer"
@@ -260,16 +255,17 @@ export default function ImageComponent({ e }: ImageComponentProps) {
         >
           <Image
             onLoad={() => setIsLoaded(true)}
-            src={`${`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}`}
-            fill
-            sizes="(max-width: 768px) 100vw, 
-         (max-width: 1200px) 50vw, 
-         33vw"
+            src={`${`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_1200,dpr_auto/${e.public_id}`}`}
+            width={e.width}
+            height={e.height}
+            sizes="
+            (min-width: 1024px) 33vw,
+            (min-width: 640px) 50vw,z
+            100vw"
             alt={e.title}
-            unoptimized // use cloudinary optimisation instead to prevent next 500 image error on slow network connection
             className={`object-cover ${
               isLoaded ? "opacity-100" : "opacity-0"
-            } rounded-xl border-none transition-opacity duration-500`}
+            } rounded-xl border-none transition-opacity duration-500  min-h-[150px] sm:min-h-auto`}
           />
         </DialogTrigger>
         <DialogContent
@@ -304,11 +300,11 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                     src={
                       galleryPath
                         ? adminData?.avatar
-                          ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${adminData?.avatar}`
-                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
+                          ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminData?.avatar}`
+                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                         : e.user?.avatar
-                        ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.user?.avatar}`
-                        : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
+                        ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.user?.avatar}`
+                        : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                     }
                     fill
                     sizes="52px"
@@ -473,7 +469,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                               <AddToNewCollectionComponent
                                 collectionTitle={collectionTitle}
                                 id={e.id}
-                                public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
+                                public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
                                 setCollectionTitle={setCollectionTitle}
                                 loading={loading}
                                 setLoading={setLoading}
@@ -525,11 +521,17 @@ export default function ImageComponent({ e }: ImageComponentProps) {
             <Image
               priority
               onLoad={() => setIsLoaded2(true)}
-              src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
+              src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
               width={e.width}
               height={e.height}
               alt={e.title}
-              unoptimized
+              sizes="
+    (min-width: 1280px) 55vw,  
+    (min-width: 1024px) 65vw,   
+    (min-width: 768px) 80vw,    
+    (min-width: 640px) 90vw,    
+    100vw                      
+  "
               className={`w-full max-h-[450px] sm:max-h-[470px] mx-auto transition-opacity duration-500 ${
                 !isLoaded2 ? "opacity-0" : "opacity-100"
               }`}
@@ -585,12 +587,11 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                     <DialogHeader className="flex flex-row items-center justify-start gap-5">
                       <div id="image_container" className="size-28 relative">
                         <Image
-                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
+                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
                           fill
-                          sizes="width-112px height-112px"
+                          sizes="112px"
                           alt={e.title}
                           className="rounded-md object-cover"
-                          unoptimized
                         />
                       </div>
 
@@ -654,7 +655,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
         isLoaded && ( // Wait until image loads
           <div
             id="update_delete_container"
-            className="flex absolute top-3 px-3 items-center justify-between w-full"
+            className="flex absolute top-5 px-3 items-center justify-between w-full"
           >
             {/* Update image visibility */}
             <UpdateImageVisibility
@@ -679,7 +680,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
       {!galleryPath && (
         <div
           id="like_collect_container"
-          className="flex gap-1 absolute top-3 right-3 items-center ease-in-out transition-all duration-500"
+          className="flex gap-1 absolute top-5 right-3 items-center ease-in-out transition-all duration-500"
         >
           {isLoaded && (
             <>
@@ -789,7 +790,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                         <AddToNewCollectionComponent
                           collectionTitle={collectionTitle}
                           id={e.id}
-                          public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
+                          public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
                           setCollectionTitle={setCollectionTitle}
                           loading={loading}
                           setLoading={setLoading}

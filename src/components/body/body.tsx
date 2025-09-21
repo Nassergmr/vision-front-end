@@ -42,10 +42,7 @@ export default function Body() {
           handleFetchPopularImages={handleFetchPopularImages}
         />
       </div>
-      <div
-        id="gallery_container"
-        className="grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-3"
-      >
+      <div id="gallery_container" className="list">
         {images?.map((e) => (
           <ImageComponent key={e.id} e={e} />
         ))}

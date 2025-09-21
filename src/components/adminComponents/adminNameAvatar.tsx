@@ -21,12 +21,11 @@ export default function AdminNameAvatar() {
         <Image
           src={
             adminAvatar
-              ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${adminAvatar}`
-              : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
+              ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminAvatar}`
+              : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
           }
           fill
           alt="avatar"
-          unoptimized
           className="rounded-full object-cover"
         />
       </div>

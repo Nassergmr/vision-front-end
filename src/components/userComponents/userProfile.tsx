@@ -119,13 +119,12 @@ const UserProfile: React.FC<Props> = ({ slug }) => {
               onLoad={() => setIsLoaded(true)}
               src={
                 userData?.avatar
-                  ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${userData.avatar}`
-                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
+                  ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${userData.avatar}`
+                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
               }
               fill
               alt="avatar"
               sizes="(min-width:640px) 140px, 112px"
-              unoptimized
               className={`rounded-full object-cover ${
                 !isLoaded ? "opacity-0" : "opacity-100"
               } transition-opacity duration-500`}
@@ -173,10 +172,7 @@ const UserProfile: React.FC<Props> = ({ slug }) => {
               handleFetchUserImages={handleFetchUserImages}
             />
           </div>
-          <div
-            id="gallery_container"
-            className="sm:my-[2rem] my-[1rem] grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-3"
-          >
+          <div id="gallery_container" className="sm:my-[2rem] my-[1rem] list">
             {userImages?.map((e) => (
               <ImageComponent key={e.id} e={e} />
             ))}

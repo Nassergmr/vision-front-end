@@ -52,7 +52,14 @@ body {
   color: black;
   overflow-x: hidden;
 }
-
+.list {
+  column-count: 3;
+}
+@media (max-width: 648px) {
+  .list {
+    column-count: 2;
+  }
+}
 #overlay_1 {
   width: 100%;
   height: 100%;

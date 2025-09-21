@@ -81,38 +81,38 @@ export default function AdminCollections() {
                       } relative h-full`}
                     >
                       <Image
-                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${
+                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${
                           e.images[e.images.length - 1]?.public_id
                         }`}
                         fill
                         alt=""
                         className="object-cover"
-                        unoptimized
+                        sizes="30vw"
                       />
                     </div>
 
                     <div className={`relative`}>
                       <Image
-                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${
+                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${
                           e.images[e.images.length - 2]?.public_id
                         }`}
                         fill
                         alt=""
                         className="object-cover"
-                        unoptimized
+                        sizes="30vw"
                       />
                     </div>
 
                     {e.images.length > 2 && (
                       <div className={`relative`}>
                         <Image
-                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${
+                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${
                             e.images[e.images.length - 3]?.public_id
                           }`}
                           fill
                           alt=""
                           className="object-cover"
-                          unoptimized
+                          sizes="30vw"
                         />
                       </div>
                     )}

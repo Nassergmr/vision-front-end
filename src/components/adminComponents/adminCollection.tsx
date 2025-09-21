@@ -187,10 +187,7 @@ export default function AdminCollection({ id }: Props) {
         {collection?.title}
       </h3>
       {collection?.images.length !== 0 ? (
-        <div
-          id="images_container"
-          className="grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-3"
-        >
+        <div id="images_container" className="list">
           {collection?.images.map((e) => (
             <ImageComponent key={e.id} e={e} />
           ))}

@@ -36,10 +36,7 @@ export default function AdminLikedImages() {
       )}
 
       {adminLikedImages && adminLikedImages.length > 0 && (
-        <div
-          id="gallery_container"
-          className="grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-3 sm:my-[2rem] my-[1rem] "
-        >
+        <div id="gallery_container" className="list sm:my-[2rem] my-[1rem] ">
           {adminLikedImages?.map((e) => (
             <ImageComponent key={e.id} e={e} />
           ))}

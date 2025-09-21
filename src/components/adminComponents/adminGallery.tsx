@@ -124,10 +124,7 @@ export default function AdminGallery() {
       )}
 
       {visible && allImages && (
-        <div
-          id="gallery_container"
-          className="sm:my-[2rem] my-[1rem] grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-3"
-        >
+        <div id="gallery_container" className="sm:my-[2rem] my-[1rem] list">
           {adminImages?.map((e) => (
             <ImageComponent key={e.id} e={e} />
           ))}
@@ -135,10 +132,7 @@ export default function AdminGallery() {
       )}
 
       {visible && publishedImages && (
-        <div
-          id="gallery_container"
-          className="sm:my-[2rem] my-[1rem] grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-3"
-        >
+        <div id="gallery_container" className="sm:my-[2rem] my-[1rem] list">
           {adminPublishedImages?.map((e) => (
             <ImageComponent key={e.id} e={e} />
           ))}
@@ -146,10 +140,7 @@ export default function AdminGallery() {
       )}
 
       {visible && draftImages && (
-        <div
-          id="gallery_container"
-          className="sm:my-[2rem] my-[1rem] grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-3"
-        >
+        <div id="gallery_container" className="sm:my-[2rem] my-[1rem] list">
           {adminDraftImages?.map((e) => (
             <ImageComponent key={e.id} e={e} />
           ))}

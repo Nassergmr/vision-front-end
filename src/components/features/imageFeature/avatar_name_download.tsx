@@ -13,7 +13,7 @@ export default function AvatarNameDownload({
   return (
     <div
       id="avatar_user-name_download"
-      className="md:flex hidden justify-between items-end absolute bottom-3 w-full px-3 group-hover:opacity-100 ease-in-out transition-all duration-500 opacity-0"
+      className="md:flex hidden justify-between items-end absolute bottom-6 w-full px-3 group-hover:opacity-100 ease-in-out transition-all duration-500 opacity-0"
     >
       {/* User-avatar & user-name */}
       <Link
@@ -27,15 +27,14 @@ export default function AvatarNameDownload({
             src={
               galleryPath
                 ? adminData?.avatar
-                  ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${adminData?.avatar}`
-                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
+                  ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminData?.avatar}`
+                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
                 : e.user?.avatar
-                ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.user?.avatar}`
-                : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
+                ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.user?.avatar}`
+                : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
             }
             fill
             sizes="44px"
-            unoptimized
             alt="avatar"
             className="rounded-full object-cover"
           />
