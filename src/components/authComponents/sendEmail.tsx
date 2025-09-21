@@ -21,7 +21,8 @@ export default function EnterEmail() {
     try {
       await resetPassword(email);
       setSuccessMessage(
-        "Email with a link to reset your password has been sent to your email address."
+        `An email with a verification link has been sent to your address.  
+        (It may take a few minutes to arrive.)`
       );
       setErrorMessage("");
       setTimeout(() => {

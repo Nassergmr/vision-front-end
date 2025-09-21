@@ -81,7 +81,7 @@ export default function AdminCollections() {
                       } relative h-full`}
                     >
                       <Image
-                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${
+                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${
                           e.images[e.images.length - 1]?.public_id
                         }`}
                         fill
@@ -93,7 +93,7 @@ export default function AdminCollections() {
 
                     <div className={`relative`}>
                       <Image
-                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${
+                        src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${
                           e.images[e.images.length - 2]?.public_id
                         }`}
                         fill
@@ -106,7 +106,7 @@ export default function AdminCollections() {
                     {e.images.length > 2 && (
                       <div className={`relative`}>
                         <Image
-                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${
+                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${
                             e.images[e.images.length - 3]?.public_id
                           }`}
                           fill

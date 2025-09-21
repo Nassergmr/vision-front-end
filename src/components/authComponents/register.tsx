@@ -187,7 +187,8 @@ const Register: React.FC = () => {
 
             {verifyEmail && (
               <p className="text-center text-[#37C57D] mt-2">
-                Please Verify your email adress
+                An email with a verification link has been sent to your address.
+                (It may take a few minutes to arrive.)
               </p>
             )}
 

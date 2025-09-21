@@ -119,8 +119,8 @@ const UserProfile: React.FC<Props> = ({ slug }) => {
               onLoad={() => setIsLoaded(true)}
               src={
                 userData?.avatar
-                  ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${userData.avatar}`
-                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
+                  ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${userData.avatar}`
+                  : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
               }
               fill
               alt="avatar"

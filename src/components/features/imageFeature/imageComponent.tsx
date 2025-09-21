@@ -260,7 +260,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
         >
           <Image
             onLoad={() => setIsLoaded(true)}
-            src={`${`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}`}
+            src={`${`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}`}
             fill
             sizes="(max-width: 768px) 100vw, 
          (max-width: 1200px) 50vw, 
@@ -304,11 +304,11 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                     src={
                       galleryPath
                         ? adminData?.avatar
-                          ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminData?.avatar}`
-                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
+                          ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${adminData?.avatar}`
+                          : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
                         : e.user?.avatar
-                        ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.user?.avatar}`
-                        : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/avatar_rccauo.png"
+                        ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.user?.avatar}`
+                        : "https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/avatar_rccauo.png"
                     }
                     fill
                     sizes="52px"
@@ -473,7 +473,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                               <AddToNewCollectionComponent
                                 collectionTitle={collectionTitle}
                                 id={e.id}
-                                public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
+                                public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
                                 setCollectionTitle={setCollectionTitle}
                                 loading={loading}
                                 setLoading={setLoading}
@@ -525,7 +525,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
             <Image
               priority
               onLoad={() => setIsLoaded2(true)}
-              src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
+              src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
               width={e.width}
               height={e.height}
               alt={e.title}
@@ -585,7 +585,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                     <DialogHeader className="flex flex-row items-center justify-start gap-5">
                       <div id="image_container" className="size-28 relative">
                         <Image
-                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
+                          src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
                           fill
                           sizes="width-112px height-112px"
                           alt={e.title}
@@ -789,7 +789,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                         <AddToNewCollectionComponent
                           collectionTitle={collectionTitle}
                           id={e.id}
-                          public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${e.public_id}`}
+                          public_id={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${e.public_id}`}
                           setCollectionTitle={setCollectionTitle}
                           loading={loading}
                           setLoading={setLoading}

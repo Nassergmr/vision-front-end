@@ -65,7 +65,7 @@ export default function AddToExistingCollectionComponent({
             {/* Collection preview image */}
             {el.images.length > 0 && (
               <Image
-                src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${
+                src={`https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto,w_auto,dpr_auto/${
                   el.images[el.images.length - 1]?.public_id
                 }`}
                 fill
