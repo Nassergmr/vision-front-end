@@ -61,7 +61,7 @@ export default function AdminImageUpload() {
     toast.error(
       <div className="py-5">
         <p className="text-center">
-          Please upload a photo between 200 KB and 5 MB in size
+          Please upload a photo between 200 KB and 10 MB in size
         </p>
       </div>
     );
@@ -70,7 +70,7 @@ export default function AdminImageUpload() {
   const handleSelectImage = (file: File | null) => {
     if (file) {
       const fileSizeMB = file.size / (1024 * 1024);
-      if (fileSizeMB > 5 || fileSizeMB < 0.2) {
+      if (fileSizeMB > 10 || fileSizeMB < 0.2) {
         errorNotify();
         setFile(null);
         return;

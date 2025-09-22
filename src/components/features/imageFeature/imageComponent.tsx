@@ -246,7 +246,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
     <div
       id="image_container"
       key={e.id}
-      className="group relative overflow-hidden my-2"
+      className="group relative overflow-hidden py-1.5"
     >
       <Dialog open={dialogOpen2} onOpenChange={setDialogOpen2}>
         <DialogTrigger
