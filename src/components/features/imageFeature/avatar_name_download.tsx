@@ -13,16 +13,16 @@ export default function AvatarNameDownload({
   return (
     <div
       id="avatar_user-name_download"
-      className="md:flex hidden justify-between items-end absolute bottom-6 w-full px-3 group-hover:opacity-100 ease-in-out transition-all duration-500 opacity-0"
+      className="md:flex hidden justify-between items-end absolute bottom-6 w-full px-3 "
     >
       {/* User-avatar & user-name */}
       <Link
         scroll={true}
         href={`/profile/${galleryPath ? adminData?.slug : e.user?.slug}`}
         id="avatar_user-name"
-        className=" flex gap-2 items-center"
+        className=" flex gap-2 items-center group-hover:opacity-100 -mb-2 group-hover:mb-0  ease-in-out group-hover:transition-all group-hover:duration-300 opacity-0"
       >
-        <div id="avatar_container" className="relative size-11">
+        <div id="avatar_container" className="relative size-11 ">
           <Image
             src={
               galleryPath
@@ -40,7 +40,7 @@ export default function AvatarNameDownload({
           />
         </div>
 
-        <p className="text-white truncate max-w-full">
+        <p className="text-white truncate max-w-[80px] lg:block hidden">
           {galleryPath ? adminData?.firstName : e.user?.firstName}{" "}
           {galleryPath ? adminData?.lastName : e.user?.lastName}
         </p>

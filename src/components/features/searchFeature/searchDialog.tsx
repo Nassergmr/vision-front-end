@@ -21,7 +21,8 @@ export default function SearchDialog({
 
   return (
     <div
-      className=" absolute py-5 rounded-xl bg-white min-h-60 max-h-[80] overflow-y-auto mt-4 border border-gray-100 shadow-sm w-[calc(100%-30px)] sm:w-[calc(100%-60px)]"
+      className=" z-10 absolute py-5 rounded-xl bg-white min-h-60 max-h-[80] overflow-y-auto mt-4 border border-gray-100 shadow-lg xl:w-full sm:w-[calc(100%-60px)] w-[calc(100%-30px)]"
+      //  w-[calc(100%-30px)] sm:w-[calc(100%-60px)]
       style={{ display: openDialog ? "block" : "none" }}
     >
       <div className="flex flex-col gap-1.5">

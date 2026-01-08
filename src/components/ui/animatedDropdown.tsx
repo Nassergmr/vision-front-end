@@ -75,14 +75,19 @@ const Option = ({
       <motion.li
         variants={itemVariants}
         onClick={() => setOpen && setOpen(false)}
-        className="flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-[#F7F7F7] transition-colors cursor-pointer"
+        className="flex items-center gap-2 w-full p-2 text-xs font-medium whitespace-nowrap rounded-md hover:bg-[#F7F7F7] group transition-colors cursor-pointer"
       >
         {Icon && (
           <motion.span variants={actionIconVariants}>
-            <Icon size={20} className="text-gray-500" />
+            <Icon
+              size={20}
+              className=" text-gray-600 group-hover:text-primary transition-colors"
+            />
           </motion.span>
         )}
-        <span className="text-base text-gray-500">{text}</span>
+        <span className="text-base text-gray-600 group-hover:text-primary transition-colors">
+          {text}
+        </span>
       </motion.li>
     </Link>
   );

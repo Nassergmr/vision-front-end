@@ -47,10 +47,10 @@ export default function Footer() {
                 Share your photos. Reveal your story.
               </div>
               <div className="flex items-center sm:gap-5 gap-4 sm:flex-row flex-col mx-auto sm:mx-0">
-                <button className=" cursor-pointer flex items-center gap-2 bg-gray-100 hover:bg-gray-200 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg">
+                <button className=" cursor-pointer flex items-center gap-2 bg-gray-100 hover:bg-gray-200 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg">
                   Download on iOS
                 </button>
-                <button className=" cursor-pointer flex items-center gap-2 bg-gray-100 hover:bg-gray-200 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg">
+                <button className=" cursor-pointer flex items-center gap-2 bg-gray-100 hover:bg-gray-200 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg">
                   Download on Android
                 </button>
               </div>

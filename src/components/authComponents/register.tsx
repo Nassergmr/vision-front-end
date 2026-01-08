@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { RefObject, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { registerUser } from "@/services/authServices";
 import { AxiosError } from "axios";
+import Slider from "react-slick";
 
-const Register: React.FC = () => {
+type RefProps = {
+  sliderRef: RefObject<Slider | null>;
+};
+export default function Register({ sliderRef }: RefProps) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,6 +51,9 @@ const Register: React.FC = () => {
       if (error instanceof AxiosError) {
         setVerifyEmail(false);
         setMessage(error.response?.data.message);
+        setTimeout(() => {
+          setMessage("");
+        }, 3000);
       }
     } finally {
       setLoading(false);
@@ -56,156 +61,130 @@ const Register: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 my-[4rem] lg:px-8">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
       {!isSignedIn && (
-        <>
-          <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <Link className={`w-fit`} id="logo_container" href={"/"}>
-              <Image
-                src={"/logo_black.png"}
-                width={80}
-                height={80}
-                className=" object-cover mx-auto mb-8"
-                alt="avatar"
-              />
-            </Link>
-            <h2 className="mt-5 text-neutral-700 text-center text-2xl sm:text-3xl font-semibold ">
-              Create an account
-            </h2>
-          </div>
-
-          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form
-              onSubmit={handleRegisterUser}
-              method="POST"
-              className="space-y-6"
-            >
-              <div>
-                <label
-                  htmlFor="first-name"
-                  className="block text-sm/6 font-medium text-gray-900"
-                >
-                  First Name
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="first-name"
-                    name="text"
-                    type="text"
-                    required
-                    autoComplete="text"
-                    className="border border-gray-200 px-4 py-3 rounded-md outline-none w-full"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="last-name"
-                  className="block text-sm/6 font-medium text-gray-900"
-                >
-                  Last Name
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="last-name"
-                    name="last-name"
-                    type="text"
-                    required
-                    autoComplete="text"
-                    className="border border-gray-200 px-4 py-3 rounded-md outline-none w-full"
-                    value={lastName}
-                    onChange={(e) => setlastName(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm/6 font-medium text-gray-900"
-                >
-                  Email address
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    autoComplete="email"
-                    className="border border-gray-200 px-4 py-3 rounded-md outline-none w-full"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <div className="flex items-center justify-between">
-                  <label
-                    htmlFor="password"
-                    className="block text-sm/6 font-medium text-gray-900"
-                  >
-                    Password
-                  </label>
-                </div>
-                <div className="mt-1">
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    required
-                    autoComplete="current-password"
-                    className="border border-gray-200 px-4 py-3 rounded-md outline-none w-full"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <button
-                  disabled={loading}
-                  type="submit"
-                  className={`${
-                    loading
-                      ? "bg-[#AFEBCE] cursor-not-allowed  pointer-events-none"
-                      : " bg-[#00CC83] cursor-pointer"
-                  } flex w-full hover:bg-[#00a369] justify-center  gap-2 border-1 transition-all duration-500   py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  text-white`}
-                >
-                  <span className="">{loading ? "Loading" : "Register"}</span>
-                </button>
-              </div>
-            </form>
-
-            {message.trim() !== "" && (
-              <p className="text-center text-[#cc1a5f] mt-2">{message}</p>
-            )}
-
-            {verifyEmail && (
-              <p className="text-center text-[#37C57D] mt-2">
-                An email with a verification link has been sent to your address.
-                (It may take a few minutes to arrive.)
-              </p>
-            )}
-
-            <p className="mt-5 text-center text-sm/6 text-gray-500">
-              Already have an account?{"  "}
-              <Link
-                href="/login"
-                className="text-sm/6 font-medium text-gray-900"
-              >
-                Log in
-              </Link>
+        <div className="sm:mx-auto w-full">
+          <div className="mx-auto flex items-center flex-col gap-2 mb-5">
+            <h1 className="font-medium text-2xl text-center">
+              Sign Up to Vision
+            </h1>
+            <p className="text-center text-[#7F7F7F] font-medium">
+              Free photos shared by a growing community of creators to inspire
+              your ideas.
             </p>
           </div>
-        </>
+
+          <form
+            onSubmit={handleRegisterUser}
+            method="POST"
+            className="space-y-3"
+          >
+            <div>
+              <div className="mt-1">
+                <input
+                  id="first-name"
+                  name="text"
+                  type="text"
+                  placeholder="First Name"
+                  required
+                  autoComplete="text"
+                  className="border border-gray-200 placeholder:text-sm px-4 py-3 rounded-md outline-none w-full"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="mt-1">
+                <input
+                  id="last-name"
+                  name="last-name"
+                  type="text"
+                  placeholder="Last Name"
+                  required
+                  autoComplete="text"
+                  className="border border-gray-200 placeholder:text-sm px-4 py-3 rounded-md outline-none w-full"
+                  value={lastName}
+                  onChange={(e) => setlastName(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="mt-1">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  required
+                  autoComplete="email"
+                  className="border border-gray-200 placeholder:text-sm px-4 py-3 rounded-md outline-none w-full"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between"></div>
+              <div className="mt-1">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  required
+                  autoComplete="current-password"
+                  className="border placeholder:text-sm border-gray-200 px-4 py-3 rounded-md outline-none w-full"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                />
+              </div>
+            </div>
+
+            <div>
+              <button
+                disabled={loading}
+                type="submit"
+                className={`${
+                  loading
+                    ? "bg-[#AFEBCE] cursor-not-allowed  pointer-events-none"
+                    : " bg-[#00CC83] cursor-pointer"
+                } flex w-full hover:bg-[#00a369] justify-center  gap-2 border-1 transition-all duration-300   py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  text-white`}
+              >
+                <span className="">
+                  {loading ? "Loading" : "Create an account"}
+                </span>
+              </button>
+            </div>
+          </form>
+
+          {message.trim() !== "" && (
+            <p className="text-center text-[#cc1a5f] mt-5">{message}</p>
+          )}
+
+          {verifyEmail && (
+            <p className="text-center text-[#37C57D] mt-5">
+              An email with a verification link has been sent to your address.
+              (It may take a few minutes to arrive.)
+            </p>
+          )}
+
+          <p className="mt-5 text-center text-base font-medium text-gray-500">
+            Already have an account?{"  "}
+            <button
+              onClick={() => sliderRef.current?.slickNext()}
+              className="text-base ml-2 font-medium text-gray-900 cursor-pointer"
+            >
+              <span className="border-b-2 border-dotted border-gray-300">
+                Log In
+              </span>
+            </button>
+          </p>
+        </div>
       )}
     </div>
   );
-};
-
-export default Register;
+}

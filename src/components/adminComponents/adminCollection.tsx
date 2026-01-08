@@ -50,6 +50,10 @@ export default function AdminCollection({ id }: Props) {
     handleFetchAdminCollection(id);
   }, [id, router]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleFetchAdminCollection = async (id: string) => {
     try {
       const res = await fetchAdminCollection(id);
@@ -100,7 +104,7 @@ export default function AdminCollection({ id }: Props) {
       <Dialog open={dialogOpen} onOpenChange={setdialogOpen}>
         <DialogTrigger
           onClick={() => setVisible(true)}
-          className="flex justify-center mx-auto mb-3 sm:mb-5  items-center  bg-[#00CC83] hover:bg-[#00a369] transition-all duration-500 sm:p-3 p-2.5 rounded-full cursor-pointer"
+          className="flex justify-center mx-auto mb-3 sm:mb-5  items-center  bg-[#00CC83] hover:bg-[#00a369] transition-all duration-300 sm:p-3 p-2.5 rounded-full cursor-pointer"
         >
           <GoPencil className="text-white sm:size-7 size-6" />
         </DialogTrigger>
@@ -135,7 +139,7 @@ export default function AdminCollection({ id }: Props) {
                   disabled={collectionTitle.trim().length === 0 || loading}
                   onClick={handleEditCollection}
                   variant={"default"}
-                  className="transition-all border-1 duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
+                  className="transition-all border-1 duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
                 >
                   <span>{loading ? "Loading" : "Update Collection"}</span>
                 </Button>
@@ -145,7 +149,7 @@ export default function AdminCollection({ id }: Props) {
                     setVisible(false);
                   }}
                   disabled={loading}
-                  className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
+                  className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
                 >
                   Delete
                 </button>
@@ -164,14 +168,14 @@ export default function AdminCollection({ id }: Props) {
                   disabled={loading2}
                   onClick={handleDeleteCollection}
                   variant={"default"}
-                  className="transition-all border-1 duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  bg-[#FF2077] hover:bg-[#cc1a5f]"
+                  className="transition-all border-1 duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  bg-[#FF2077] hover:bg-[#cc1a5f]"
                 >
                   <span> Delete Collection</span>
                 </Button>
 
                 <button
                   onClick={() => setVisible(true)}
-                  className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
+                  className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
                 >
                   Cancel
                 </button>
@@ -207,7 +211,7 @@ export default function AdminCollection({ id }: Props) {
             />
           </div>
           <Link href={"/"}>
-            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500 sm:text-lg">
+            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300 sm:text-lg">
               <GoArrowLeft size={22} />
               <span>Add Photos</span>
             </button>

@@ -38,7 +38,7 @@ export default function UpdateImageVisibility2({
     <div
       title={`${isPublished ? "Draft photo" : "Publish photo"}`}
       onClick={() => handleUpdateImageVisibility(id)}
-      className={`border-1 transition duration-500  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg   flex cursor-pointer items-center gap-2
+      className={`border-1 transition duration-300  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg   flex cursor-pointer items-center gap-2
         ${
           isPublished && !loading2
             ? "bg-gray-600 text-white border-gray-600"

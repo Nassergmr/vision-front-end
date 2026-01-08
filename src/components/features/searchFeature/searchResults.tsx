@@ -52,9 +52,9 @@ export default function SearchResults({ query }: Props) {
             <div className="flex items-center gap-1">
               <CiImageOn
                 size={30}
-                className="text-gray-600 group-hover:text-gray-800  transition-all duration-500"
+                className="text-gray-600 group-hover:text-gray-800  transition-all duration-300"
               />
-              <p className="text-gray-600 group-hover:text-gray-800  transition-all duration-500 text-2xl">
+              <p className="text-gray-600 group-hover:text-gray-800  transition-all duration-300 text-2xl">
                 {searchResults.length}
               </p>
             </div>
@@ -68,12 +68,14 @@ export default function SearchResults({ query }: Props) {
 
           {isEmpty && (
             <div className="flex flex-col items-center justify-center gap-8 mt-[2rem]">
-              <h3 className="text-3xl">No results found for {decodedQuery}</h3>
+              <h3 className="sm:text-3xl text-xl text-center">
+                No results found for {decodedQuery}
+              </h3>
               <div className="relative size-30">
                 <Image src={"/empty-collection.png"} fill alt="" />
               </div>
               <Link href={"/"}>
-                <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500 text-lg">
+                <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300 text-lg">
                   <GoArrowLeft size={22} />
                   <span>Browse photos</span>
                 </button>

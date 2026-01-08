@@ -4,7 +4,7 @@ import { updateImageDownloads } from "@/services/imageServices";
 import { useStore } from "@/store/zustand";
 import { fetchAdminDownloadedImages } from "@/services/userServices";
 
-export default function DownloadButton({ e }: AvatarNameDownloadProps) {
+export default function DownloadButton2({ e }: AvatarNameDownloadProps) {
   const { adminData, updateAdminDownloadedImages } = useStore();
 
   const handleUpdateImageDownloads = async () => {
@@ -19,7 +19,7 @@ export default function DownloadButton({ e }: AvatarNameDownloadProps) {
   };
 
   return (
-    <div id="download" onClick={handleUpdateImageDownloads} className="">
+    <div id="download" onClick={handleUpdateImageDownloads}>
       <a
         href={`https://res.cloudinary.com/dae5vlvpe/image/upload/fl_attachment:vision${
           adminData?.firstName ? "-" : ""
@@ -27,8 +27,7 @@ export default function DownloadButton({ e }: AvatarNameDownloadProps) {
           e.public_id
         }`}
       >
-        <button className="group-hover:opacity-100  backdrop-blur-xs hover:bg-gray-200/20 group-hover:ease-in-out group-hover:transition-all group-hover:duration-300 opacity-0 flex items-center gap-2 border-[1.5px] border-white py-3 px-4 text-base rounded-full cursor-pointer -mb-2 group-hover:mb-0">
-          {/* bg-[#00CC83]  */}
+        <button className="flex items-center gap-2 bg-[#00CC83] hover:bg-[#00a369] transition-all duration-300  py-2.5 px-5 md:text-lg text-base rounded-lg cursor-pointer">
           <VscCloudDownload size={22} color="white" />{" "}
           <span className="text-white xs block">Download</span>
         </button>

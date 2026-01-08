@@ -67,7 +67,7 @@ export const FileUpload = ({
 
         <div className="flex flex-col items-center justify-center">
           <p className="relative z-20 font-sans font-bold text-black dark:text-neutral-300 text-3xl">
-            Upload photo
+            Upload Photo
           </p>
           <p className="relative z-20 font-sans font-normal text-neutral-400 dark:text-neutral-400 text-base mt-2">
             Drag and drop your photo here or click to upload

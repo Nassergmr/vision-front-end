@@ -41,13 +41,13 @@ export default function AdminNameAvatar() {
       {/* Edit profile button */}
       <div className="flex items-center gap-5">
         <Link href={"/edit-profile"}>
-          <button className="flex items-center gap-2 bg-[#00CC83] hover:bg-[#00a369] transition-all duration-500  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  cursor-pointer">
+          <button className="flex items-center gap-2 bg-[#00CC83] hover:bg-[#00a369] transition-all duration-300  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  cursor-pointer">
             <GoPencil size={22} className="text-white" />
             <p className="text-white">Edit Profile</p>
           </button>
         </Link>
         <Link href={`/profile/${adminData?.slug}`}>
-          <button className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg ">
+          <button className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg ">
             View My Profile
           </button>
         </Link>

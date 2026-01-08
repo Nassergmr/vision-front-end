@@ -17,6 +17,10 @@ export default function AdminProfile() {
     }
   }, [router]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="container-custom sm:mt-[8rem] sm:mb-[4rem] mb-[3rem] mt-[7rem]">
       <AdminNameAvatar />

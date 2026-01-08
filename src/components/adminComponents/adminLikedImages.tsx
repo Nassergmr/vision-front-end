@@ -6,13 +6,18 @@ import AdminLinks from "./adminLinks";
 import ImageComponent from "../features/imageFeature/imageComponent";
 import { GoArrowLeft } from "react-icons/go";
 import { useStore } from "@/store/zustand";
+import { useEffect } from "react";
 
 export default function AdminLikedImages() {
   const { adminLikedImages } = useStore();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="container-custom sm:mt-[8rem] sm:mb-[4rem] mb-[3rem] mt-[7rem]">
-      <h2 className="text-neutral-700 text-center sm:text-3xl font-semibold text-2xl">
+      <h2 className="text-center sm:text-3xl font-semibold text-2xl">
         Your Likes
       </h2>
 
@@ -27,7 +32,7 @@ export default function AdminLikedImages() {
             <Image src={"/empty-likes.png"} fill alt="" />
           </div>
           <Link href={"/"}>
-            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500 sm:text-lg">
+            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300 sm:text-lg">
               <GoArrowLeft size={22} />
               <span>Find photos to like</span>
             </button>

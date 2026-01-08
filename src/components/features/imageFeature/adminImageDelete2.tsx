@@ -25,7 +25,7 @@ export default function AdminImageDelete2({
     <Dialog open={dialogOpen4} onOpenChange={setDialogOpen4}>
       <DialogTrigger
         onClick={() => setDialogOpen4(true)}
-        className=" flex cursor-pointer items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
+        className=" flex cursor-pointer items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
       >
         <span className="hidden sm:block">Delete</span>
 
@@ -44,14 +44,14 @@ export default function AdminImageDelete2({
               handleDeleteImage();
             }}
             variant={"default"}
-            className="transition-all border-1 duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  bg-[#FF2077] hover:bg-[#cc1a5f]"
+            className="transition-all border-1 duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  bg-[#FF2077] hover:bg-[#cc1a5f]"
           >
             <span> Delete photo</span>
           </Button>
 
           <button
             onClick={() => setDialogOpen4(false)}
-            className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
+            className="cursor-pointer border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg "
           >
             Cancel
           </button>

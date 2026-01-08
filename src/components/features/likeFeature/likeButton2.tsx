@@ -72,7 +72,7 @@ export default function LikeButton2({
         }
         className={`md:flex hidden ${
           loading4 ? "cursor-progress" : "cursor-pointer"
-        } items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5  md:text-lg rounded-lg`}
+        } items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5  md:text-lg rounded-lg`}
       >
         {adminLikes?.some((img) => img.imageId === e.id) ? (
           <GoHeartFill
@@ -113,7 +113,7 @@ export default function LikeButton2({
         }
         className={` md:hidden flex ${
           loading4 ? "cursor-progress" : "cursor-pointer"
-        } items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5  md:text-lg rounded-lg`}
+        } items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5  md:text-lg rounded-lg`}
       >
         {adminLikes?.some((img) => img.imageId === e.id) ? (
           loading4 ? (

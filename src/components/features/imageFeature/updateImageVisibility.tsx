@@ -59,7 +59,7 @@ export default function UpdateImageVisibility({
       {/* Small screens */}
       <div
         onClick={() => handleUpdateImageVisibility(id)}
-        className={`text-sm block sm:hidden px-2.5 py-1 w-fit rounded-full transition-all duration-500 ${
+        className={`text-sm block sm:hidden px-2.5 py-1 w-fit rounded-full transition-all duration-300 ${
           isPublished && !loading2
             ? "text-white bg-gray-600"
             : "text-black bg-gray-100"

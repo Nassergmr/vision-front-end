@@ -50,7 +50,7 @@ export default function AdminImageUpload() {
         </h3>
         <Link
           href={"/my-profile/gallery"}
-          className="bg-white text-black hover:bg-gray-100 flex items-center gap-2 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  cursor-pointer  shadow-xs w-fit mx-auto transition-all duration-500"
+          className="bg-white text-black hover:bg-gray-100 flex items-center gap-2 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  cursor-pointer  shadow-xs w-fit mx-auto transition-all duration-300"
         >
           <span>View in Gallery</span>
         </Link>
@@ -173,7 +173,7 @@ export default function AdminImageUpload() {
       <button
         disabled={!imageUpload || loading || imageTitle.trim().length === 0}
         onClick={handleImageUpload}
-        className={`text-center block gap-2 border-1 transition-all duration-500  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit mx-auto mt-8 text-white ${
+        className={`text-center block gap-2 border-1 transition-all duration-300  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit mx-auto mt-8 text-white ${
           !imageUpload || loading || imageTitle.trim().length === 0
             ? "bg-[#AFEBCE] cursor-not-allowed hover:bg-[#AFEBCE] "
             : "bg-[#00CC83] cursor-pointer hover:bg-[#00a369] "

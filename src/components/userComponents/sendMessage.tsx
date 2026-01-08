@@ -53,7 +53,7 @@ export default function SendMessage({ userData }: Props) {
         onClick={() => {
           if (!adminData?.email) {
             router.push("/login");
-          }
+          } else setOpenDialog(true);
         }}
         disabled={adminData?.email === userData?.email}
         style={{ display: userData?.messageButtonAllowed ? "block" : "none" }}
@@ -66,7 +66,7 @@ export default function SendMessage({ userData }: Props) {
           adminData?.email === userData?.email
             ? "cursor-not-allowed sm:text-black text-gray-400  sm:pointer-events-auto pointer-events-none"
             : "cursor-pointer"
-        }  border-1  border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 sm:text-lg rounded-lg`}
+        }  border-1  border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 sm:text-lg rounded-lg`}
       >
         Message
       </DialogTrigger>
@@ -117,7 +117,7 @@ export default function SendMessage({ userData }: Props) {
           <button
             disabled={loading || !checked || message.trim() === ""}
             onClick={handleSendMessage}
-            className={`ml-auto text-center gap-2 border-1 transition-all duration-500 mt-5  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit text-white ${
+            className={`ml-auto text-center gap-2 border-1 transition-all duration-300 mt-5  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit text-white ${
               loading || !checked || message.trim() === ""
                 ? "cursor-not-allowed  text-white bg-[#AFEBCE] hover:bg-[#AFEBCE]"
                 : "bg-[#00CC83] cursor-pointer hover:bg-[#00a369]"

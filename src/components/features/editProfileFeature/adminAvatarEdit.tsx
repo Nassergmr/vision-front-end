@@ -1,6 +1,11 @@
 import { useRef } from "react";
 import Image from "next/image";
-import { updateAdminAvatar } from "@/services/userServices";
+import {
+  fetchAdminData,
+  fetchAdminDownloadedImages,
+  fetchAdminLikedImages,
+  updateAdminAvatar,
+} from "@/services/userServices";
 import { Loader2 } from "lucide-react";
 import { useStore } from "@/store/zustand";
 import { Bounce, toast, ToastContainer } from "react-toastify";
@@ -17,6 +22,9 @@ export default function AdminAvatarEdit({ handleFetchAdminAvatar }: Props) {
     adminAvatarLoaded,
     updateAdminAvatarLoaded,
     updateImages,
+    updateAdminData,
+    updateAdminLikedImages,
+    updateAdminDownloadedImages,
   } = useStore();
 
   const errorNotify = () => {
@@ -77,8 +85,17 @@ export default function AdminAvatarEdit({ handleFetchAdminAvatar }: Props) {
               updateAdminAvatarLoaded(false);
               await updateAdminAvatar(file);
               await handleFetchAdminAvatar();
-              const res = await getImages(); // get latest avatar image in the body images
+              // Refetch data to get latest avatar image
+              const res = await getImages();
               updateImages(res);
+              const res2 = await fetchAdminLikedImages();
+              updateAdminLikedImages(res2);
+              // const res3 = await fetchAdminImages();
+              // updateAdminImages(res3);
+              const res3 = await fetchAdminData();
+              updateAdminData(res3);
+              const res4 = await fetchAdminDownloadedImages();
+              updateAdminDownloadedImages(res4);
             }
           }
         }}
@@ -90,7 +107,7 @@ export default function AdminAvatarEdit({ handleFetchAdminAvatar }: Props) {
       <button
         disabled={!adminAvatarLoaded}
         onClick={handleClick}
-        className={`text-center gap-2 border-1 transition-all duration-500  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit text-white ${
+        className={`text-center gap-2 border-1 transition-all duration-300  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit text-white ${
           !adminAvatarLoaded
             ? "cursor-not-allowed  text-white bg-[#AFEBCE] hover:bg-[#AFEBCE]"
             : "bg-[#00CC83] cursor-pointer hover:bg-[#00a369]"

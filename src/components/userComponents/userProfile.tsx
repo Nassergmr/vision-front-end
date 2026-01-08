@@ -127,7 +127,7 @@ const UserProfile: React.FC<Props> = ({ slug }) => {
               sizes="(min-width:640px) 140px, 112px"
               className={`rounded-full object-cover ${
                 !isLoaded ? "opacity-0" : "opacity-100"
-              } transition-opacity duration-500`}
+              } transition-opacity duration-300`}
             />
           </div>
         )}
@@ -194,7 +194,7 @@ const UserProfile: React.FC<Props> = ({ slug }) => {
               />
             </div>
             <Link href={"/"}>
-              <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500 sm:text-lg">
+              <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300 sm:text-lg">
                 <GoArrowLeft size={22} />
                 <span>Browse photos</span>
               </button>

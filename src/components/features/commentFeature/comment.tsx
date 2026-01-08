@@ -110,7 +110,7 @@ export default function CommentComponent({
         }}
       >
         <textarea
-          className={` border-gray-500  h-35 border rounded-md p-4 outline-none`}
+          className={` border-gray-500 placeholder:text-gray-500 h-35 border rounded-md p-4 outline-none`}
           name=""
           id=""
           placeholder="Write a comment..."
@@ -121,7 +121,7 @@ export default function CommentComponent({
         {/* Submit Comment Button */}
         <button
           disabled={imageComment.trim().length === 0 || loading3}
-          className={`flex items-center gap-2 transition-all duration-500  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit
+          className={`flex items-center gap-2 transition-all duration-300  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit
                         ${
                           loading3
                             ? "cursor-not-allowed bg-[#AFEBCE] hover:bg-[#AFEBCE]"

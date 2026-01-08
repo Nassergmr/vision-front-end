@@ -127,7 +127,7 @@ export default function AdminInfoForm({
         </h3>
         <Link
           href={`/profile/${adminData?.slug}`}
-          className="bg-white text-black hover:bg-gray-100 flex items-center gap-2 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  cursor-pointer  shadow-xs w-fit mx-auto transition-all duration-500"
+          className="bg-white text-black hover:bg-gray-100 flex items-center gap-2 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  cursor-pointer  shadow-xs w-fit mx-auto transition-all duration-300"
         >
           <span>View My Profile</span>
         </Link>
@@ -201,18 +201,8 @@ export default function AdminInfoForm({
           />
         </div>
 
-        {/* { 
-      title: "Password",
-      required: true,
-      type: "text",
-      value: adminPassword,
-      placeholder: "Enter your password",
-      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-        setAdminPassword(e.target.value),
-    }, */}
-
         <Link className="w-fit" href={"/change-password"}>
-          <button className=" cursor-pointer flex items-center gap-2 bg-gray-100 hover:bg-gray-200 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg">
+          <button className=" cursor-pointer flex items-center gap-2 bg-gray-100 hover:bg-gray-200 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg">
             Change password
           </button>
         </Link>
@@ -239,7 +229,7 @@ export default function AdminInfoForm({
 
       <button
         type="submit"
-        className={`text-center gap-2 border-1 transition-all duration-500 mt-5  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit text-white ${
+        className={`text-center gap-2 border-1 transition-all duration-300 mt-5  py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg  w-fit text-white ${
           loading
             ? "cursor-not-allowed  text-white bg-[#AFEBCE] hover:bg-[#AFEBCE]"
             : "bg-[#00CC83] cursor-pointer hover:bg-[#00a369]"

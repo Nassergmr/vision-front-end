@@ -56,7 +56,7 @@ export default function AdminLinks() {
               ref={(el) => {
                 linksRef[index] = el;
               }}
-              className={`px-5 py-3 transition duration-[0.14s]
+              className={`px-5 py-3 font-medium transition duration-[0.14s]
               ${
                 el.href === path
                   ? "bg-black text-white rounded-xl"

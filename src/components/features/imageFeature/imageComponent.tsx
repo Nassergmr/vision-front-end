@@ -54,12 +54,12 @@ import LikeButton2 from "../likeFeature/likeButton2";
 import CommentComponent from "../commentFeature/comment";
 import UpdateImageVisibility from "./updateImageVisibility";
 import AdminImageDelete from "./adminImageDelete";
-import DownloadButton from "../downloadFeature/downloadButton";
 import AdminImageDelete2 from "./adminImageDelete2";
 import UpdateImageVisibility2 from "./updateImageVisibility2";
 
 // Zustand
 import { useStore } from "@/store/zustand";
+import DownloadButton2 from "../downloadFeature/downloadButtton2";
 
 interface ImageComponentProps {
   e: ImageData;
@@ -100,6 +100,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
 
   const {
     adminData,
+    adminLikes,
     adminCollections,
     adminCollectionsImages,
     updateAdminImages,
@@ -265,7 +266,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
             alt={e.title}
             className={`object-cover ${
               isLoaded ? "opacity-100" : "opacity-0"
-            } rounded-xl border-none transition-opacity duration-500  min-h-[150px] sm:min-h-auto`}
+            } rounded-xl border-none transition-opacity duration-300  min-h-[150px] sm:min-h-auto`}
           />
         </DialogTrigger>
         <DialogContent
@@ -353,7 +354,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                         }`}
                         className={`${
                           loading ? "cursor-progress" : "cursor-pointer"
-                        } flex items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg`}
+                        } flex items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg`}
                       >
                         {adminCollectionsImages?.some(
                           (img) => img.id === e.id
@@ -442,7 +443,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                                       : "block",
                                 }}
                               >
-                                <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500 sm:text-lg">
+                                <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300 sm:text-lg">
                                   <span>Your Collections</span>
                                   <GoArrowRight size={22} />
                                 </button>
@@ -506,7 +507,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                   </div>
                 )}
                 {/* Download */}
-                <DownloadButton e={e} />
+                <DownloadButton2 e={e} />
               </div>
             </div>
           </DialogHeader>
@@ -532,7 +533,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
     (min-width: 640px) 90vw,    
     100vw                      
   "
-              className={`w-full max-h-[450px] sm:max-h-[470px] mx-auto transition-opacity duration-500 ${
+              className={`w-full max-h-[450px] sm:max-h-[470px] mx-auto transition-opacity duration-300 ${
                 !isLoaded2 ? "opacity-0" : "opacity-100"
               }`}
             />
@@ -549,28 +550,18 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                   className="flex flex-col gap-2"
                 >
                   {e.title && (
-                    <Link
-                      href={`/search/${e.title}`}
-                      className=" flex group items-center gap-1 text-gray-500 hover:text-black transition-all duration-500 text-sm"
-                    >
-                      <MdClosedCaptionOff
-                        size={20}
-                        className="text-gray-500 group-hover:text-black transition-all duration-500"
-                      />
-                      <span>{e.title}</span>
-                    </Link>
+                    <div className=" flex group items-center gap-1 text-gray-500 text-sm">
+                      <MdClosedCaptionOff size={20} className="text-gray-500" />
+                      <span className="sm:w-auto max-w-[90%]">{e.title}</span>
+                    </div>
                   )}
                   {e.location && (
-                    <Link
-                      href={`/search/${e.location}`}
-                      className=" flex group items-center gap-1 text-gray-500 hover:text-black transition-all duration-500 text-sm"
-                    >
-                      <GoLocation
-                        size={18}
-                        className="text-gray-500 group-hover:text-black transition-all duration-500"
-                      />
-                      <span>{e.location}</span>
-                    </Link>
+                    <div className=" flex group items-center gap-1 text-gray-500 text-sm">
+                      <GoLocation size={18} className="text-gray-500" />
+                      <span className="sm:w-auto max-w-[90%]">
+                        {e.location}
+                      </span>
+                    </div>
                   )}
                 </div>
 
@@ -578,10 +569,10 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                 <Dialog>
                   <DialogTrigger
                     onClick={() => handleFetchImageDownloads(e.id)}
-                    className="flex cursor-pointer items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-500 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg"
+                    className="flex cursor-pointer items-center gap-2 border-1 border-[#EDEDED] hover:border-gray-500 hover:bg-gray-100 transition-all duration-300 py-2.5 lg:px-5 px-3.5 md:text-lg rounded-lg"
                   >
                     <GoInfo size={22} color="black" />
-                    <span>More info</span>
+                    <span className="sm:block hidden">More info</span>
                   </DialogTrigger>
                   <DialogContent className="bg-[#1E2026] text-white border-[#1E2026] xl:w-[40%] lg:w-[50%] md:w-[60%] sm:w-[70%] w-[90%]">
                     <DialogHeader className="flex flex-row items-center justify-start gap-5">
@@ -677,10 +668,17 @@ export default function ImageComponent({ e }: ImageComponentProps) {
           </div>
         )}
 
+      {/* Like & Collect */}
       {!galleryPath && (
         <div
           id="like_collect_container"
-          className="flex gap-1 absolute top-5 right-3 items-center ease-in-out transition-all duration-500"
+          className={`flex gap-1 absolute top-5 items-center group-hover:ease-in-out group-hover:transition-all group-hover:duration-300
+          ${
+            adminLikes?.some((el) => el.imageId === e.id) ||
+            adminCollectionsImages?.some((img) => img.id === e.id)
+              ? "right-3"
+              : "-right-3 group-hover:right-3"
+          }`}
         >
           {isLoaded && (
             <>
@@ -706,11 +704,11 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                       ? "Collected"
                       : "Collect"
                   }`}
-                  className={`rounded-xl transition-all duration-500 p-2
+                  className={`rounded-xl p-2
              ${
                adminCollectionsImages?.some((img) => img.id === e.id)
-                 ? "bg-[#7A7ADD] sm:opacity-100 block  order-2 "
-                 : "bg-black/30 hover:bg-black/50 group-hover:opacity-100 sm:opacity-0 hidden sm:block"
+                 ? "bg-[#7A7ADD] sm:opacity-100 block  order-2"
+                 : "bg-black/30 hover:bg-black/50 group-hover:opacity-100 sm:opacity-0 hidden sm:block transition-colors duration-300"
              } ${loading ? "cursor-progress" : "cursor-pointer"}`}
                 >
                   <GoBookmark
@@ -766,7 +764,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                                 : "block",
                           }}
                         >
-                          <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500  sm:text-lg">
+                          <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300  sm:text-lg">
                             <span>Your Collections</span>
                             <GoArrowRight size={22} />
                           </button>

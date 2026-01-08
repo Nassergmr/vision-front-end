@@ -9,6 +9,7 @@ import {
 import { AddToCollectionProps } from "../../../../types/types";
 import { useStore } from "@/store/zustand";
 import { Skeleton } from "@/components/ui/skeleton";
+import { CiImageOn } from "react-icons/ci";
 
 export default function AddToExistingCollectionComponent({
   loading,
@@ -77,19 +78,26 @@ export default function AddToExistingCollectionComponent({
 
             {/* Empty collection preview image*/}
             {el.images.length === 0 && (
-              <Image
-                src={`/empty-collection-preview.png`}
-                fill
-                sizes="165px"
-                alt={el.title}
-                className={`object-cover`}
-              />
+              <div className="bg-[#ebebeb] w-full h-full relative">
+                {loading && (
+                  <Skeleton
+                    className={`${
+                      el.id === isId ? "block" : "hidden"
+                    } relative w-full h-full rounded-xl bg-gray-300/60 z-20`}
+                  />
+                )}
+                <CiImageOn
+                  size={75}
+                  color="#7F7F7F"
+                  className={`top-1/2 absolute left-1/2 -translate-1/2`}
+                />
+              </div>
             )}
             {loading && (
               <Skeleton
                 className={`${
                   el.id === isId ? "block" : "hidden"
-                } relative w-full h-full rounded-xl bg-gray-300/60`}
+                } relative w-full h-full rounded-xl bg-gray-300/60 z-20`}
               />
             )}
 

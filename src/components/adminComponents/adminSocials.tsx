@@ -9,7 +9,6 @@ import {
 import { PiTiktokLogoThin } from "react-icons/pi";
 
 import { AdminData } from "../../../types/types";
-// import { useEffect, useState } from "react";
 
 interface Props {
   adminData?: AdminData;
@@ -24,7 +23,7 @@ export default function AdminSocials({ adminData }: Props) {
             size={23}
             className="text-gray-900 relative z-10 transition-all duration-300 group-hover:text-white"
           />
-          <div className="absolute top-full left-0 w-full h-full rounded-full bg-purple-500 z-0 transition-all duration-500 group-hover:top-0"></div>
+          <div className="absolute top-full left-0 w-full h-full rounded-full bg-purple-500 z-0 transition-all duration-300 group-hover:top-0"></div>
         </button>
       ),
       href: `https://www.google.com/maps/search/${encodeURIComponent(
@@ -39,7 +38,7 @@ export default function AdminSocials({ adminData }: Props) {
             size={23}
             className="text-gray-900 relative z-10 transition-all duration-300 group-hover:text-white"
           />
-          <div className="absolute top-full left-0 w-full h-full rounded-full bg-green-500 z-0 transition-all duration-500 group-hover:top-0"></div>
+          <div className="absolute top-full left-0 w-full h-full rounded-full bg-green-500 z-0 transition-all duration-300 group-hover:top-0"></div>
         </button>
       ),
       href: adminData?.website?.startsWith("http")
@@ -54,7 +53,7 @@ export default function AdminSocials({ adminData }: Props) {
             size={23}
             className="text-gray-900 relative z-10 transition-all duration-300 group-hover:text-white"
           />
-          <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-500 z-0 transition-all duration-500 group-hover:top-0"></div>
+          <div className="absolute top-full left-0 w-full h-full rounded-full bg-blue-500 z-0 transition-all duration-300 group-hover:top-0"></div>
         </button>
       ),
       href: `https://facebook.com/${adminData?.facebook}`,
@@ -62,12 +61,12 @@ export default function AdminSocials({ adminData }: Props) {
     },
     {
       icon: (
-        <button className="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full relative overflow-hidden bg-white shadow-md shadow-gray-200 group transition-all duration-500">
+        <button className="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full relative overflow-hidden bg-white shadow-md shadow-gray-200 group transition-all duration-300">
           <CiInstagram
             size={23}
             className="text-gray-900 relative z-10 transition-all duration-300 group-hover:text-white"
           />
-          <div className="absolute top-full left-0 w-full h-full rounded-full bg-gradient-to-bl from-purple-500 via-pink-500 to-yellow-500 z-0 transition-all duration-500 group-hover:top-0">
+          <div className="absolute top-full left-0 w-full h-full rounded-full bg-gradient-to-bl from-purple-500 via-pink-500 to-yellow-500 z-0 transition-all duration-300 group-hover:top-0">
             {" "}
           </div>
         </button>
@@ -83,7 +82,7 @@ export default function AdminSocials({ adminData }: Props) {
             size={23}
             className="text-gray-900 relative z-10 transition-all duration-300 group-hover:text-white"
           />
-          <div className="absolute top-full left-0 w-full h-full rounded-full bg-[#FF3000] z-0 transition-all duration-500 group-hover:top-0"></div>
+          <div className="absolute top-full left-0 w-full h-full rounded-full bg-[#FF3000] z-0 transition-all duration-300 group-hover:top-0"></div>
         </button>
       ),
 
@@ -97,7 +96,7 @@ export default function AdminSocials({ adminData }: Props) {
             size={23}
             className="text-gray-900 relative z-10 transition-all duration-300 group-hover:text-white"
           />
-          <div className="absolute top-full left-0 w-full h-full rounded-full bg-[black] z-0 transition-all duration-500 group-hover:top-0"></div>
+          <div className="absolute top-full left-0 w-full h-full rounded-full bg-[black] z-0 transition-all duration-300 group-hover:top-0"></div>
         </button>
       ),
 

@@ -21,9 +21,13 @@ export default function AdminCollections() {
     }
   }, [router]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="container-custom sm:mt-[8rem] sm:mb-[4rem] mb-[3rem] mt-[7rem]">
-      <h2 className="text-neutral-700 text-center sm:text-3xl font-semibold text-2xl">
+      <h2 className="text-center sm:text-3xl font-semibold text-2xl">
         Your Collections
       </h2>
       <AdminLinks />
@@ -42,7 +46,7 @@ export default function AdminCollections() {
             />
           </div>
           <Link href={"/"}>
-            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500 sm:text-lg">
+            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300 sm:text-lg">
               <GoArrowLeft size={22} />
               <span>Make your collection</span>
             </button>
@@ -62,7 +66,7 @@ export default function AdminCollections() {
               className="flex flex-col gap-3 group"
             >
               <div className="relative w-full sm:h-[350px] h-[300px] overflow-hidden rounded-xl">
-                <div className="inset-0 bg-black/30 z-10 absolute opacity-20 group-hover:opacity-100 rounded-xl transition-all duration-500"></div>
+                <div className="inset-0 bg-black/30 z-10 absolute opacity-20 group-hover:opacity-100 rounded-xl transition-all duration-300"></div>
 
                 {/* Collection preview grid */}
                 {e.images.length !== 0 ? (
@@ -130,15 +134,15 @@ export default function AdminCollections() {
               </div>
 
               <div className="flex items-center justify-between">
-                <p className="text-gray-600 group-hover:text-gray-800 text-xl transition-all duration-500 truncate">
+                <p className="text-gray-600 group-hover:text-gray-800 text-xl transition-all duration-300 truncate">
                   {e.title}
                 </p>
                 <div className="flex items-center gap-1">
                   <CiImageOn
                     size={25}
-                    className="text-gray-600 group-hover:text-gray-800  transition-all duration-500"
+                    className="text-gray-600 group-hover:text-gray-800  transition-all duration-300"
                   />
-                  <p className="text-gray-600 group-hover:text-gray-800  transition-all duration-500 text-lg">
+                  <p className="text-gray-600 group-hover:text-gray-800  transition-all duration-300 text-lg">
                     {e.images.length}
                   </p>
                 </div>

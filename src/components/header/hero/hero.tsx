@@ -3,12 +3,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import StaggeredDropDown from "@/components/ui/animatedDropdown";
-import { useStore } from "@/store/zustand";
+
+// Components
 import SearchForm from "@/components/features/searchFeature/searchForm";
-import SearchDialog from "@/components/features/searchFeature/searchDialog";
+// import SearchDialog from "@/components/features/searchFeature/searchDialog";
+import HeroCard from "@/components/ui/heroCard";
+import StaggeredDropDown from "@/components/ui/animatedDropdown";
 import { getSearchedImages } from "@/services/searchServices";
 import { Loader2 } from "lucide-react";
+
+// Zustand
+import { useStore } from "@/store/zustand";
 
 export default function Hero() {
   const [suggestions, setSuggestions] = useState([]);
@@ -17,17 +22,17 @@ export default function Hero() {
   const [openDialog, setOpenDialog] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  const [loading, setLoading] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   const [inputValue, setInputValue] = useState("");
 
-  const dialogRef = useRef<HTMLDivElement | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
 
   const {
-    adminAvatar,
     emptySearchResults,
+    adminAvatar,
     adminAvatarLoaded,
     updateSearchResults,
     updateEmptySearchResults,
@@ -66,14 +71,13 @@ export default function Hero() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openDialog, openDropdown]);
 
   const handleFetchSearchResults = useCallback(async () => {
-    setLoading(true);
+    // setLoading(true);
     setOpenDialog(true);
     try {
       const res = await getSearchedImages(inputValue);
@@ -84,24 +88,89 @@ export default function Hero() {
     } catch (error) {
       alert(error);
     } finally {
-      setIsLoaded(true);
-      setLoading(false);
+      // setIsLoaded(true);
+      // setLoading(false);
     }
   }, [inputValue, updateEmptySearchResults]);
 
   return (
     <>
+      {/* > XL screens */}
+      <div className="mt-30 mb-20 justify-between items-center gap-10 xl:flex hidden container-custom">
+        <div ref={dialogRef} id="search_input" className="relative">
+          <h1
+            onClick={() => {
+              setOpenDialog(false);
+              setOpenDropdown(false);
+            }}
+            className="md:text-5xl text-black text-2xl tracking-tighter font-semibold pb-8 w-full sm:text-left text-center"
+          >
+            Explore and upload your photos, royalty free images shared by
+            creators.
+          </h1>
+
+          <SearchForm
+            suggestions={suggestions}
+            emptySearchResults={emptySearchResults}
+            inputValue={inputValue}
+            setSuggestions={setSuggestions}
+            setInputValue={setInputValue}
+            setOpenDialog={setOpenDialog}
+            handleFetchSearchResults={handleFetchSearchResults}
+          />
+          {/* <SearchDialog
+            suggestions={suggestions}
+            openDialog={openDialog}
+            loading={loading}
+            isLoaded={isLoaded}
+            setOpenDialog={setOpenDialog}
+          /> */}
+        </div>
+
+        {/* Cards */}
+        {/* Large Screens */}
+        <div className="flex items-center gap-3">
+          <HeroCard
+            isLoggedIn={isLoggedIn}
+            imageSrc="/pexels-jjstudio-31525091.jpg"
+            title={isLoggedIn ? "Share Your Work" : "Create an Account"}
+            paragraph={
+              isLoggedIn
+                ? "Upload photos and make them visible"
+                : "Join a growing photo community"
+            }
+            button={isLoggedIn ? "Upload" : "Join"}
+            href="/upload"
+          />
+
+          <HeroCard
+            isLoggedIn={isLoggedIn}
+            imageSrc="/pexels-quang-nguyen-vinh-222549-6876792.jpg"
+            title={isLoggedIn ? "Your Gallery" : "Be Part Of Vision"}
+            paragraph={
+              isLoggedIn
+                ? "Manage and publish your photos"
+                : "Sign up to upload and save photos"
+            }
+            button={isLoggedIn ? "View" : "Get Started"}
+            href="/my-profile/gallery"
+          />
+        </div>
+      </div>
+
+      {/* < XL screens */}
       <div
         id="hero"
-        className="lg:h-[80vh] h-[70vh] text-white relative  container-custom"
+        className="lg:h-[80vh] h-[60vh] text-white relative  container-custom block xl:hidden"
       >
         <Image
-          src={"/black2.jpg"}
+          src={"/pexels-philippedonn-1169754.jpg"}
           fill
           alt="wallpaper"
           className="object-cover"
           priority
         />
+        <div className="inset-0 absolute w-full h-full bg-black/20"></div>
         {/* Navebar */}
         <div id="navebar" className="relative z-20 h-10">
           <div
@@ -191,7 +260,8 @@ export default function Hero() {
             }}
             className="md:text-3xl text-2xl font-semibold pb-5 w-full sm:text-left text-center"
           >
-            Explore and share photos, royalty free images shared by creators.
+            Explore and share your photos, royalty free images shared by
+            creators.
           </h1>
 
           <SearchForm
@@ -203,13 +273,13 @@ export default function Hero() {
             setOpenDialog={setOpenDialog}
             handleFetchSearchResults={handleFetchSearchResults}
           />
-          <SearchDialog
+          {/* <SearchDialog
             suggestions={suggestions}
             openDialog={openDialog}
             loading={loading}
             isLoaded={isLoaded}
             setOpenDialog={setOpenDialog}
-          />
+          /> */}
         </div>
       </div>
     </>

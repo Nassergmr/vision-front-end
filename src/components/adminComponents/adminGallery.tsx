@@ -49,6 +49,10 @@ export default function AdminGallery() {
     }
   }, [adminImages]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleFetchImages = async () => {
     try {
       const res = await fetchAdminImages();
@@ -101,7 +105,7 @@ export default function AdminGallery() {
 
   return (
     <div className="container-custom sm:mt-[8rem] sm:mb-[4rem] mb-[3rem] mt-[7rem]">
-      <h2 className="text-neutral-700 text-center sm:text-3xl font-semibold text-2xl">
+      <h2 className="text-center sm:text-3xl font-semibold text-2xl">
         Your Gallery
       </h2>
       <AdminLinks />
@@ -158,7 +162,7 @@ export default function AdminGallery() {
             inspired by the creativity of others.
           </p>
           <Link href={"/"}>
-            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-500 sm:text-lg">
+            <button className="flex items-center gap-2 py-2.5 px-5 rounded-lg cursor-pointer bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 w-fit mx-auto transition-all duration-300 sm:text-lg">
               <GoArrowLeft size={22} />
               <span>Get inspired</span>
             </button>

@@ -70,13 +70,15 @@ export default function LikeButton({
         title={`${
           adminLikes?.some((el) => el.imageId === e.id) ? "Unlike" : "Like"
         }`}
-        className={`lg:block hidden p-2 rounded-xl transition-all duration-500 cursor-pointer 
+        className={`lg:block hidden p-2 rounded-xl  group-hover:opacity-100 opacity-0 cursor-pointer 
+          
         ${
           adminLikes?.some((el) => el.imageId === e.id)
             ? "bg-[#DB275F] opacity-100 block  order-2"
-            : "bg-black/30 hover:bg-black/50 group-hover:opacity-100 opacity-0"
+            : "bg-black/30 hover:bg-black/50 transition-colors duration-300"
         }
        ${loading4 ? "cursor-progress" : "cursor-pointer"}`}
+        //  transition-all duration-300
       >
         <CiHeart
           className={`${
@@ -94,7 +96,7 @@ export default function LikeButton({
             ? handleUpdateImageLikes(e.id, e.public_id, adminData?.id)
             : router.push("/login")
         }
-        className={` block lg:hidden p-2 rounded-xl transition-all duration-500  cursor-pointer 
+        className={` block lg:hidden p-2 rounded-xl transition-all duration-300  cursor-pointer 
         ${
           adminLikes?.some((el) => el.imageId === e.id)
             ? "bg-[#DB275F] block order-2"

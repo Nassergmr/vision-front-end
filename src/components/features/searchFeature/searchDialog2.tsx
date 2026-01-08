@@ -21,7 +21,7 @@ export default function SearchDialog2({
 
   return (
     <div
-      className=" absolute py-5 rounded-md bg-white min-h-60 max-h-[80] overflow-y-auto mt-3 border border-gray-100 shadow-sm w-full sm:w-[90%]"
+      className=" absolute py-5 rounded-md bg-white min-h-60 max-h-[80] overflow-y-auto mt-2.5 border border-gray-100 shadow-sm w-full sm:w-[85%]"
       style={{ display: openDialog ? "block" : "none" }}
     >
       <div
@@ -46,13 +46,13 @@ export default function SearchDialog2({
             }}
             key={e.id}
             href={`/search/${e.title}`}
-            className={`hover:bg-gray-100 py-1.5 sm:px-5 px-3 ${
+            className={`hover:bg-gray-100 py-1.5 sm:px-5 px-3  ${
               loading ? " cursor-not-allowed" : "cursor-pointer"
             }`}
           >
             <button disabled={loading}>
               <p
-                className={`cursor-pointer ${
+                className={`cursor-pointer text-start ${
                   loading ? "text-gray-400" : "text-black "
                 }`}
               >

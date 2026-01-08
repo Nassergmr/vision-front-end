@@ -33,7 +33,7 @@ export default function Body() {
 
   return (
     <div className="mb-[3rem] sm:mb-[4rem] container-custom">
-      <div className="flex justify-between sm:items-end items-center gap-1 my-[1rem] sm:my-[2rem]">
+      <div className="flex justify-between sm:items-end items-center gap-1 my-[1rem] sm:mt-[2rem] sm:mb-[1.5rem]">
         <h3 className="text-black sm:text-2xl font-medium text-lg tracking-tight">
           {title} Free Stock Photos
         </h3>
