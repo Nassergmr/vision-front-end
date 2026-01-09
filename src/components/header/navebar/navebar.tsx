@@ -8,7 +8,6 @@ import { usePathname } from "next/navigation";
 // Components
 import StaggeredDropDown from "@/components/ui/animatedDropdown";
 import SearchForm2 from "@/components/features/searchFeature/searchForm2";
-import SearchDialog2 from "@/components/features/searchFeature/searchDialog2";
 import LoginDialog from "@/components/ui/loginDialog";
 import SearchForm3 from "@/components/features/searchFeature/searchForm3";
 import RegisterDialog from "@/components/ui/registerDialog";
@@ -34,8 +33,8 @@ export default function Navebar({ isLoggedIn }: Props) {
   const [openDialog, setOpenDialog] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  const [loading, setLoading] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [loading, setLoading] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
 
   const [suggestions, setSuggestions] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -121,7 +120,6 @@ export default function Navebar({ isLoggedIn }: Props) {
   }, [isHomePage]);
 
   const handleFetchSearchResults = useCallback(async () => {
-    setLoading(true);
     try {
       const res = await getSearchedImages(inputValue);
       setSuggestions(res);
@@ -131,9 +129,6 @@ export default function Navebar({ isLoggedIn }: Props) {
       } else updateEmptySearchResults(false);
     } catch (error) {
       alert(error);
-    } finally {
-      setIsLoaded(true);
-      setLoading(false);
     }
   }, [inputValue, updateEmptySearchResults]);
 
@@ -175,14 +170,6 @@ export default function Navebar({ isLoggedIn }: Props) {
                   handleFetchSearchResults={handleFetchSearchResults}
                 />
               )}
-
-              <SearchDialog2
-                suggestions={suggestions}
-                openDialog={openDialog}
-                loading={loading}
-                isLoaded={isLoaded}
-                setOpenDialog={setOpenDialog}
-              />
             </div>
           </div>
 
@@ -330,14 +317,6 @@ export default function Navebar({ isLoggedIn }: Props) {
                   handleFetchSearchResults={handleFetchSearchResults}
                 />
               </div>
-
-              <SearchDialog2
-                suggestions={suggestions}
-                openDialog={openDialog}
-                loading={loading}
-                isLoaded={isLoaded}
-                setOpenDialog={setOpenDialog}
-              />
             </div>
           </div>
 
