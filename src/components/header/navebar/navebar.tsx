@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 // Components
 import StaggeredDropDown from "@/components/ui/animatedDropdown";
 import SearchForm2 from "@/components/features/searchFeature/searchForm2";
-// import SearchDialog2 from "@/components/features/searchFeature/searchDialog2";
+import SearchDialog2 from "@/components/features/searchFeature/searchDialog2";
 import LoginDialog from "@/components/ui/loginDialog";
 import SearchForm3 from "@/components/features/searchFeature/searchForm3";
 import RegisterDialog from "@/components/ui/registerDialog";
@@ -34,8 +34,8 @@ export default function Navebar({ isLoggedIn }: Props) {
   const [openDialog, setOpenDialog] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  // const [loading, setLoading] = useState(false);
-  // const [isLoaded, setIsLoaded] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const [suggestions, setSuggestions] = useState([]);
   const [inputValue, setInputValue] = useState("");
@@ -89,30 +89,27 @@ export default function Navebar({ isLoggedIn }: Props) {
 
   // Handle navebar visiblily on scroll
   useEffect(() => {
-    if (isHomePage) {
-      setIsVisible(false);
-      setIsVisible2(false);
-    }
-    // setTimeout(() => {
-    else {
-      setIsVisible(true);
+    if (!isHomePage) {
       setIsVisible2(true);
+    } else setIsVisible2(false);
+
+    setTimeout(() => {
+      setIsVisible(false);
+    }, 2000);
+
+    if (!isHomePage) {
+      setIsVisible(true);
+      return;
     }
-    // }, 2000);
-
-    // if (!isHomePage) {
-    //   setIsVisible2(true);
-    // }
-
     const handleScroll = () => {
       const height = window.innerHeight * 0.8;
       const scroll = window.pageYOffset;
 
-      if (scroll > height && isHomePage) {
+      if (scroll > height) {
         setIsVisible(true);
         setIsVisible2(true);
       }
-      if (scroll < height && isHomePage) {
+      if (scroll < height) {
         setIsVisible(false);
         setIsVisible2(false);
       }
@@ -124,7 +121,7 @@ export default function Navebar({ isLoggedIn }: Props) {
   }, [isHomePage]);
 
   const handleFetchSearchResults = useCallback(async () => {
-    // setLoading(true);
+    setLoading(true);
     try {
       const res = await getSearchedImages(inputValue);
       setSuggestions(res);
@@ -135,8 +132,8 @@ export default function Navebar({ isLoggedIn }: Props) {
     } catch (error) {
       alert(error);
     } finally {
-      // setIsLoaded(true);
-      // setLoading(false);
+      setIsLoaded(true);
+      setLoading(false);
     }
   }, [inputValue, updateEmptySearchResults]);
 
@@ -179,13 +176,13 @@ export default function Navebar({ isLoggedIn }: Props) {
                 />
               )}
 
-              {/* <SearchDialog2
+              <SearchDialog2
                 suggestions={suggestions}
                 openDialog={openDialog}
                 loading={loading}
                 isLoaded={isLoaded}
                 setOpenDialog={setOpenDialog}
-              /> */}
+              />
             </div>
           </div>
 
@@ -205,14 +202,14 @@ export default function Navebar({ isLoggedIn }: Props) {
               <div className="flex items-center">
                 <Link
                   href={"/about"}
-                  className="text-gray-600 hover:text-black text-lg hover:bg-[#F7F7F7] transition-all duration-100 py-2 px-4 rounded-full"
+                  className="text-gray-600 hover:text-black text-lg hover:bg-gray-100 transition-all duration-100 py-2 px-4 rounded-full"
                 >
                   About
                 </Link>
 
                 <Link
                   href={"/license"}
-                  className="text-gray-600 hover:text-black text-lg hover:bg-[#F7F7F7] transition-all duration-100 py-2 px-4 rounded-full"
+                  className="text-gray-600 hover:text-black text-lg hover:bg-gray-100 transition-all duration-100 py-2 px-4 rounded-full"
                 >
                   License
                 </Link>
@@ -282,7 +279,7 @@ export default function Navebar({ isLoggedIn }: Props) {
 
       {/* < XL screens */}
       <nav
-        style={{ top: isVisible || !isHomePage ? "0" : "-100px" }}
+        style={{ top: isVisible ? "0" : "-100px" }}
         className=" z-50 w-full fixed top-0 left-0 xl:hidden block transition-all duration-600 ease-in-out container-custom bg-white shadow-2xs"
       >
         <div
@@ -334,13 +331,13 @@ export default function Navebar({ isLoggedIn }: Props) {
                 />
               </div>
 
-              {/* <SearchDialog2
+              <SearchDialog2
                 suggestions={suggestions}
                 openDialog={openDialog}
                 loading={loading}
                 isLoaded={isLoaded}
                 setOpenDialog={setOpenDialog}
-              /> */}
+              />
             </div>
           </div>
 

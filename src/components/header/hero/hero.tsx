@@ -6,7 +6,7 @@ import Link from "next/link";
 
 // Components
 import SearchForm from "@/components/features/searchFeature/searchForm";
-// import SearchDialog from "@/components/features/searchFeature/searchDialog";
+import SearchDialog from "@/components/features/searchFeature/searchDialog";
 import HeroCard from "@/components/ui/heroCard";
 import StaggeredDropDown from "@/components/ui/animatedDropdown";
 import { getSearchedImages } from "@/services/searchServices";
@@ -22,8 +22,8 @@ export default function Hero() {
   const [openDialog, setOpenDialog] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  // const [loading, setLoading] = useState(false);
-  // const [isLoaded, setIsLoaded] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -77,7 +77,7 @@ export default function Hero() {
   }, [openDialog, openDropdown]);
 
   const handleFetchSearchResults = useCallback(async () => {
-    // setLoading(true);
+    setLoading(true);
     setOpenDialog(true);
     try {
       const res = await getSearchedImages(inputValue);
@@ -88,8 +88,8 @@ export default function Hero() {
     } catch (error) {
       alert(error);
     } finally {
-      // setIsLoaded(true);
-      // setLoading(false);
+      setIsLoaded(true);
+      setLoading(false);
     }
   }, [inputValue, updateEmptySearchResults]);
 
@@ -118,13 +118,13 @@ export default function Hero() {
             setOpenDialog={setOpenDialog}
             handleFetchSearchResults={handleFetchSearchResults}
           />
-          {/* <SearchDialog
+          <SearchDialog
             suggestions={suggestions}
             openDialog={openDialog}
             loading={loading}
             isLoaded={isLoaded}
             setOpenDialog={setOpenDialog}
-          /> */}
+          />
         </div>
 
         {/* Cards */}
@@ -273,13 +273,13 @@ export default function Hero() {
             setOpenDialog={setOpenDialog}
             handleFetchSearchResults={handleFetchSearchResults}
           />
-          {/* <SearchDialog
+          <SearchDialog
             suggestions={suggestions}
             openDialog={openDialog}
             loading={loading}
             isLoaded={isLoaded}
             setOpenDialog={setOpenDialog}
-          /> */}
+          />
         </div>
       </div>
     </>

@@ -513,12 +513,16 @@ export default function ImageComponent({ e }: ImageComponentProps) {
           </DialogHeader>
 
           {/* Image details */}
-          <div id="image_container" className={`mx-auto my-2`}>
-            {!isLoaded2 && (
+
+          {!isLoaded2 && (
+            <div className="my-2">
               <Skeleton
-                className={`relative h-[450px] sm:h-[470px] ${e.width} bg-gray-200`}
+                className={`relative sm:h-[450px] h-[400px] w-full bg-gray-200`}
               />
-            )}
+            </div>
+          )}
+
+          <div id="image_container" className={`mx-auto my-2`}>
             <Image
               priority
               onLoad={() => setIsLoaded2(true)}
@@ -552,13 +556,15 @@ export default function ImageComponent({ e }: ImageComponentProps) {
                   {e.title && (
                     <div className=" flex group items-center gap-1 text-gray-500 text-sm">
                       <MdClosedCaptionOff size={20} className="text-gray-500" />
-                      <span className="sm:w-auto max-w-[90%]">{e.title}</span>
+                      <span className="sm:max-w-full max-w-[90%]">
+                        {e.title}
+                      </span>
                     </div>
                   )}
                   {e.location && (
                     <div className=" flex group items-center gap-1 text-gray-500 text-sm">
                       <GoLocation size={18} className="text-gray-500" />
-                      <span className="sm:w-auto max-w-[90%]">
+                      <span className="sm:max-w-full max-w-[90%]">
                         {e.location}
                       </span>
                     </div>

@@ -27,12 +27,14 @@ export default function EnterEmail({ sliderRef }: RefProps) {
         `An email with a verification link has been sent to your address.  
         (It may take a few minutes to arrive.)`
       );
-      setErrorMessage("");
       setTimeout(() => {
         router.push("/login");
       }, 20000);
     } catch {
       setErrorMessage("Invalid email");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 3000);
       setSuccessMessage("");
     } finally {
       setLoading(false);
@@ -76,7 +78,12 @@ export default function EnterEmail({ sliderRef }: RefProps) {
               />
             </div>
           </div>
-
+          {successMessage.trim() !== "" && (
+            <p className="text-[#37C57D] mt-2">{successMessage}</p>
+          )}
+          {errorMessage.trim() !== "" && (
+            <p className="text-[#cc1a5f] mt-2">{errorMessage}</p>
+          )}
           <div className="flex gap-2 items-center">
             <button
               type="button"
@@ -99,12 +106,6 @@ export default function EnterEmail({ sliderRef }: RefProps) {
             </button>
           </div>
         </form>
-        {successMessage.trim() !== "" && (
-          <p className="text-[#37C57D] text-center mt-2">{successMessage}</p>
-        )}
-        {errorMessage.trim() !== "" && (
-          <p className="text-[#cc1a5f] text-center mt-2">{errorMessage}</p>
-        )}
       </div>
     </div>
   );
