@@ -33,9 +33,6 @@ export default function Navebar({ isLoggedIn }: Props) {
   const [openDialog, setOpenDialog] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
-  // const [loading, setLoading] = useState(false);
-  // const [isLoaded, setIsLoaded] = useState(false);
-
   const [suggestions, setSuggestions] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
@@ -86,38 +83,30 @@ export default function Navebar({ isLoggedIn }: Props) {
     };
   }, [openDialog, openDropdown]);
 
-  // Handle navebar visiblily on scroll
+  // Handle navebar visiblily
   useEffect(() => {
     if (!isHomePage) {
-      setIsVisible2(true);
-    } else setIsVisible2(false);
-
-    setTimeout(() => {
-      setIsVisible(false);
-    }, 2000);
-
-    if (!isHomePage) {
       setIsVisible(true);
-      return;
+      setIsVisible2(true);
     }
-    const handleScroll = () => {
-      const height = window.innerHeight * 0.8;
-      const scroll = window.pageYOffset;
-
-      if (scroll > height) {
-        setIsVisible(true);
-        setIsVisible2(true);
-      }
-      if (scroll < height) {
-        setIsVisible(false);
-        setIsVisible2(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isHomePage]);
+    if (isHomePage) {
+      const handleScroll = () => {
+        const height = window.innerHeight * 0.8;
+        const scroll = window.pageYOffset;
+        if (scroll > height) {
+          setIsVisible(true);
+          setIsVisible2(true);
+        } else {
+          setIsVisible(false);
+          setIsVisible2(false);
+        }
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [isHomePage, isVisible2]);
 
   const handleFetchSearchResults = useCallback(async () => {
     try {
