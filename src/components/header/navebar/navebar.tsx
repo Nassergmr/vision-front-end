@@ -88,7 +88,13 @@ export default function Navebar({ isLoggedIn }: Props) {
     if (!isHomePage) {
       setIsVisible(true);
       setIsVisible2(true);
+    } else {
+      setIsVisible(false);
+      setIsVisible2(false);
     }
+  }, [isHomePage]);
+
+  useEffect(() => {
     if (isHomePage) {
       const handleScroll = () => {
         const height = window.innerHeight * 0.8;
