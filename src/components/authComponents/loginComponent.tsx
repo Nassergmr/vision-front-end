@@ -72,7 +72,6 @@ export default function LoginComponent() {
             />
           </Link>
         </nav>
-        {/* <div className="bg-black/30 inset-0 absolute  z-10 w-full h-full"></div> */}
         <Dialog open={isOpen}>
           <DialogTrigger></DialogTrigger>
 

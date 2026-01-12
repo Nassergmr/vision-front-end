@@ -271,7 +271,7 @@ export default function ImageComponent({ e }: ImageComponentProps) {
         </DialogTrigger>
         <DialogContent
           onOpenAutoFocus={(e) => e.preventDefault()}
-          className="min-h-[85vh] sm:min-h-[95vh] xl:w-[55%] lg:w-[65%] md:w-[80%] sm:w-[90%] w-full  overflow-y-scroll"
+          className="min-h-[85vh] sm:min-h-[95vh] xl:w-[55%] lg:w-[65%] md:w-[80%] sm:w-[90%] w-full overflow-x-hidden overflow-y-scroll"
         >
           <DialogTitle></DialogTitle>
 

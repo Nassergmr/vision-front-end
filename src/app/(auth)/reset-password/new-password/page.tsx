@@ -5,7 +5,7 @@ import CreateNewPassword from "@/components/authComponents/createNewPassword";
 
 const Page: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="mx-auto">Loading...</div>}>
       <CreateNewPassword />
     </Suspense>
   );

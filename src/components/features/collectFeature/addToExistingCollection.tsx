@@ -61,7 +61,7 @@ export default function AddToExistingCollectionComponent({
         >
           <div
             id="image_container"
-            className="w-full relative h-39 group overflow-hidden rounded-xl"
+            className="w-full relative h-43 group overflow-hidden rounded-xl"
           >
             {/* Collection preview image */}
             {el.images.length > 0 && (
@@ -76,9 +76,9 @@ export default function AddToExistingCollectionComponent({
               />
             )}
 
-            {/* Empty collection preview image*/}
+            {/* Empty collection preview image */}
             {el.images.length === 0 && (
-              <div className="bg-[#ebebeb] w-full h-full relative">
+              <div className="bg-[#F7F7F7] w-full h-full relative">
                 {loading && (
                   <Skeleton
                     className={`${

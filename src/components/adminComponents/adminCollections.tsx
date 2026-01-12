@@ -122,14 +122,7 @@ export default function AdminCollections() {
                     )}
                   </div>
                 ) : (
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={"/empty-collection-preview.png"}
-                      fill
-                      alt=""
-                      className="object-cover"
-                    />
-                  </div>
+                  <div className="relative w-full h-full bg-[#F7F7F7]"></div>
                 )}
               </div>
 

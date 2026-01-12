@@ -125,7 +125,7 @@ export default function Hero() {
                 : "Join a growing photo community"
             }
             button={isLoggedIn ? "Upload" : "Join"}
-            href="/upload"
+            href={isLoggedIn ? "/upload" : "/register"}
           />
 
           <HeroCard
@@ -138,7 +138,7 @@ export default function Hero() {
                 : "Sign up to upload and save photos"
             }
             button={isLoggedIn ? "View" : "Get Started"}
-            href="/my-profile/gallery"
+            href={isLoggedIn ? "/my-profile/gallery" : "/register"}
           />
         </div>
       </div>
