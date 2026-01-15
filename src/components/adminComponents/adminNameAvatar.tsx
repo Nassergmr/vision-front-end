@@ -5,8 +5,10 @@ import Link from "next/link";
 import { GoPencil } from "react-icons/go";
 import { useStore } from "@/store/zustand";
 import { Skeleton } from "../ui/skeleton";
+import { useState } from "react";
 
 export default function AdminNameAvatar() {
+  const [isLoaded, setIsLoaded] = useState(false);
   const { adminData, adminAvatar } = useStore();
 
   return (
@@ -15,10 +17,13 @@ export default function AdminNameAvatar() {
         id="image_container"
         className="relative  sm:size-35 size-28  mx-auto"
       >
-        {!adminAvatar && (
-          <Skeleton className=" sm:size-35 size-28  rounded-full bg-gray-200" />
-        )}
+        <Skeleton
+          className={`${
+            !isLoaded ? "opacity-100" : "opacity-0"
+          } relative sm:size-35 size-28 rounded-full mx-auto bg-gray-200`}
+        />
         <Image
+          onLoad={() => setIsLoaded(true)}
           src={
             adminAvatar
               ? `https://res.cloudinary.com/dae5vlvpe/image/upload/f_auto,q_auto/${adminAvatar}`

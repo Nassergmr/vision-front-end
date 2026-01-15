@@ -40,7 +40,7 @@ export default function Footer() {
   return (
     isLoaded && (
       <footer className="relative w-full container-custom  pt-12">
-        <div className="mx-auto w-full max-w-7xl">
+        <div className="mx-auto w-full">
           <div className="grid grid-cols-1 justify-between gap-4 lg:grid-cols-2">
             <div className="flex flex-col gap-2 mb-4">
               <div className="mb-6 sm:text-4xl text-3xl font-medium tracking-tighter sm:w-2/3 w-full sm:text-left text-center sm:mx-0">
